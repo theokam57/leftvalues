@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#f5f0e8" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://leftvalues.github.io/">
+<meta property="og:url" content="https://leftvalues.szymonrokicki.pl/">
 <meta property="og:title" content="LeftValues — Odkryj swoje lewicowe wartości">
 <meta property="og:description" content="112 pytań, 7 osi ideologicznych, 20 ideologii. Sprawdź, gdzie na mapie lewicy się znajdujesz.">
 <meta property="og:locale" content="pl_PL">
@@ -22,7 +22,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="LeftValues">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0b'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="canonical" href="https://leftvalues.github.io/">
+<link rel="canonical" href="https://leftvalues.szymonrokicki.pl/">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -37,6 +39,7 @@
     <span class="header-status mono-tag" id="header-status"></span>
     <button class="lang-toggle" id="lang-toggle" title="Zmień język" onclick="toggleLang()">EN</button>
     <button class="theme-toggle" id="theme-toggle" title="Zmień motyw" onclick="toggleTheme()">☀</button>
+    <button class="a11y-toggle" id="a11y-toggle" title="Tryb dostępności" onclick="toggleAccessibility()" aria-label="Tryb dostępności">A+</button>
   </div>
 </header>
 
@@ -55,6 +58,15 @@
   </div>
 </div>
 
+<div class="page" id="page-dictionary">
+  <div class="ideologies-container">
+    <h2>Słownik pojęć</h2>
+    <div id="dictionary-list" class="values-grid">
+      </div>
+    <button class="btn-ghost" onclick="goHome()">Wróć</button>
+  </div>
+</div>
+
 <!-- ===================== INSTRUCTIONS ===================== -->
 <div class="page" id="page-instructions">
   <div class="inst-container">
@@ -68,7 +80,7 @@
       </button>
       <button class="mode-btn" id="mode-quick" onclick="selectMode('quick',this)">
         <span class="mode-name" id="mode-quick-name">Szybki</span>
-        <span class="mode-desc" id="mode-quick-desc">30 pytań · orientacyjny wynik</span>
+        <span class="mode-desc" id="mode-quick-desc">35 pytań · orientacyjny wynik</span>
       </button>
     </div>
     <div class="inst-buttons">
@@ -89,11 +101,11 @@
     <div class="q-number" id="q-number">Pytanie 1 z —</div>
     <div class="q-text" id="q-text">Ładowanie pytania…</div>
     <div class="answers" id="answers">
-      <button class="answer-btn sa" onclick="answer(1.0)"><span id="ans-sa">Zdecydowanie się zgadzam</span></button>
-      <button class="answer-btn a" onclick="answer(0.5)"><span id="ans-a">Zgadzam się</span></button>
-      <button class="answer-btn n" onclick="answer(0.0)"><span id="ans-n">Nie mam zdania</span></button>
-      <button class="answer-btn d" onclick="answer(-0.5)"><span id="ans-d">Nie zgadzam się</span></button>
-      <button class="answer-btn sd" onclick="answer(-1.0)"><span id="ans-sd">Zdecydowanie się nie zgadzam</span></button>
+      <button class="answer-btn sa" onclick="answer(1.0)" aria-label="Zdecydowanie się zgadzam (klawisz 1)"><span class="answer-key">1</span><span id="ans-sa">Zdecydowanie się zgadzam</span></button>
+      <button class="answer-btn a" onclick="answer(0.5)" aria-label="Zgadzam się (klawisz 2)"><span class="answer-key">2</span><span id="ans-a">Zgadzam się</span></button>
+      <button class="answer-btn n" onclick="answer(0.0)" aria-label="Nie mam zdania (klawisz 3)"><span class="answer-key">3</span><span id="ans-n">Nie mam zdania</span></button>
+      <button class="answer-btn d" onclick="answer(-0.5)" aria-label="Nie zgadzam się (klawisz 4)"><span class="answer-key">4</span><span id="ans-d">Nie zgadzam się</span></button>
+      <button class="answer-btn sd" onclick="answer(-1.0)" aria-label="Zdecydowanie się nie zgadzam (klawisz 5)"><span class="answer-key">5</span><span id="ans-sd">Zdecydowanie się nie zgadzam</span></button>
     </div>
     <div class="nav-buttons">
       <button class="btn-back" id="btn-back" onclick="prevQ()" disabled>← <span id="nav-back">Wróć</span></button>
@@ -159,6 +171,7 @@
         <input class="share-url-input" id="share-url" readonly value="" onclick="this.select()">
         <button class="btn-copy" id="copy-btn" onclick="copyShareUrl()">Kopiuj link</button>
       </div>
+      <button class="btn-ghost" id="export-png-btn" onclick="exportResultsPNG()" style="margin-top:.8rem;width:100%;max-width:480px">⬇ <span id="export-png-label">Eksportuj PNG</span></button>
     </div>
     <div style="font-size:.8rem;color:var(--text3);line-height:1.5" id="r-disclaimer">
       Pamiętaj, że celem nie jest uzyskanie 100% w każdej kategorii.

@@ -7,10 +7,10 @@ function getAxisRight(i){ return T('axes_right')[i]; }
 
 // ========== QUIZ STATE & LOGIC ==========
 const TOTAL_Q=Object.keys(questions).length;
-const QUICK_Q=30;
+const QUICK_Q=35;
 let quizMode='full';
-let scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
-let maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
+let scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0,h:0};
+let maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0,h:0};
 let qOrder=[];
 let qi=0;
 let quizHistory=[];
@@ -25,11 +25,11 @@ function shuffle(arr){
 
 function calcMax(){
   const keys = quizMode==='quick' ? qOrder.slice(0,QUICK_Q).map(i=>'question_'+i) : Object.keys(questions);
-  maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
+  maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0,h:0}; 
   keys.forEach(k=>{
     const q=questions[k];
     if(!q)return;
-    ['a','b','c','d','e','f','g'].forEach(ax=>{maxScores[ax]+=Math.abs(q[ax]||0);});
+    ['a','b','c','d','e','f','g','h'].forEach(ax=>{maxScores[ax]+=Math.abs(q[ax]||0);});
   });
 }
 
@@ -42,13 +42,14 @@ function selectMode(mode, btn){
 }
 
 function startQuiz(){
-  scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
+  scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0,h:0}; 
   quizHistory=[];qi=0;skippedCount=0;
-  resultSavedInSession = false; // Resetujemy przy nowym quizie
+  resultSavedInSession = false; 
   qOrder=shuffle(Object.keys(questions).map((_,i)=>i));
   calcMax();
   showPage('quiz');
   renderQuestion();
+  setTimeout(initLiveRadar, 300);
 }
 
 function totalForMode(){ return quizMode==='quick' ? QUICK_Q : TOTAL_Q; }
@@ -90,7 +91,7 @@ function renderQuestion() {
   document.getElementById('btn-back').disabled = (qi === 0);
 
   const axNames = T('axes_names');
-  const axes = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+  const axes = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
   const dominant = axes.reduce((a, b) => Math.abs(q[b] || 0) > Math.abs(q[a] || 0) ? b : a, 'a');
   const domIdx = axes.indexOf(dominant);
   
@@ -106,10 +107,14 @@ function answer(mult){
   ans.classList.remove('answer-pulse');void ans.offsetWidth;ans.classList.add('answer-pulse');
   const qKey='question_'+qOrder[qi];
   const q=questions[qKey];
-  ['a','b','c','d','e','f','g'].forEach(ax=>{scores[ax]+=mult*(q[ax]||0);});
+  ['a','b','c','d','e','f','g','h'].forEach(ax=>{scores[ax]+=mult*(q[ax]||0);});
   quizHistory.push({qi,mult,qKey});
   qi++;
   const total=totalForMode();
+
+  // Live radar update
+  updateLiveRadar();
+
   if(qi>=total){showResults();return;}
   renderQuestion();
 }
@@ -129,18 +134,36 @@ function prevQ(){
   qi=last.qi;
   if(!last.skipped){
     const q=questions[last.qKey];
-    ['a','b','c','d','e','f','g'].forEach(ax=>{scores[ax]-=last.mult*(q[ax]||0);});
+    ['a','b','c','d','e','f','g','h'].forEach(ax=>{scores[ax]-=last.mult*(q[ax]||0);});
   } else { skippedCount--; }
   renderQuestion();
 }
 
 function showPage(p){
-  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
+  const current = document.querySelector('.page.active');
+  const next = document.getElementById('page-'+p);
+  if (!next) return;
+
+  if (current && current !== next) {
+    current.classList.add('page-exit');
+    setTimeout(() => {
+      current.classList.remove('active', 'page-exit');
+      next.classList.add('active', 'page-enter');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          next.classList.remove('page-enter');
+        });
+      });
+    }, 220);
+  } else {
+    document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+    next.classList.add('active');
+  }
+
   window.scrollTo(0,0);
   if(p==='home')document.getElementById('header-status').textContent='';
-  if(p==='ideologies')renderIdeologiesPage();
-  if(p==='history')renderHistoryPage();
+  if(p==='ideologies')setTimeout(()=>renderIdeologiesPage(), 240);
+  if(p==='history')setTimeout(()=>renderHistoryPage(), 240);
 }
 
 function goHome(){showPage('home');}
@@ -151,7 +174,7 @@ function showResults() {
   document.getElementById('header-status').textContent = T('r_title');
   
   const pcts = {};
-  ['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(k => {
+  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].forEach(k => { // Musi być 'h'
     pcts[k] = calcPct(scores[k], maxScores[k]);
   });
   currentPcts = pcts;
@@ -191,10 +214,12 @@ function showResults() {
   // 2. Dopasowanie Ideologii
   const dists = [];
   Object.keys(ideologies).forEach(name => {
-    const id = ideologies[name];
-    let dist = 0;
-    ['a', 'b', 'c', 'd', 'e', 'f', 'g'].forEach(k => { dist += Math.pow(id[k] - pcts[k], 2); });
-    dists.push({ name, dist });
+  const id = ideologies[name];
+  let dist = 0;
+  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'].forEach(k => { // Musi być 'h'
+    dist += Math.pow(id[k] - pcts[k], 2); 
+  });
+  dists.push({ name, dist });
   });
   dists.sort((a, b) => a.dist - b.dist);
   
@@ -279,8 +304,8 @@ function drawRadar(pcts, compareKey){
   const svg=document.getElementById('radar-chart');
   if(!svg) return;
   svg.innerHTML='';
-  const cx=190,cy=175,r=130,n=7;
-  const axes=['a','b','c','d','e','f','g'];
+  const cx=190,cy=175,r=130,n=8;
+  const axes=['a','b','c','d','e','f','g','h'];
   const axNames=T('axes_names');
   const isDark=document.documentElement.getAttribute('data-theme')!=='light';
   const textCol=isDark?'#9090a0':'#4a3f30';
@@ -413,7 +438,7 @@ function createCompareDot() {
 
 // ========== SHARE ==========
 function generateShareUrl(){
-  const axes=['a','b','c','d','e','f','g'];
+  const axes=['a','b','c','d','e','f','g','h'];
   const encoded=axes.map(k=>Math.round(currentPcts[k]||50)).join('-');
   const url=window.location.href.split('#')[0]+'#r='+encoded;
   document.getElementById('share-url').value=url;
@@ -433,7 +458,7 @@ function loadSharedResults(){
   if(!hash.startsWith('#r='))return;
   const parts=hash.slice(3).split('-').map(Number);
   if(parts.length!==7)return;
-  const axes=['a','b','c','d','e','f','g'];
+  const axes=['a','b','c','d','e','f','g','h'];
   axes.forEach((k,i)=>{currentPcts[k]=parts[i]||50;});
   calcMax();
   axes.forEach(k=>{scores[k]=((currentPcts[k]/100)*2-1)*maxScores[k];});
@@ -475,7 +500,7 @@ function renderHistoryPage(){
     const name=ideo?(ideo.name[currentLang]||ideo.name.pl):'?';
     const date=new Date(item.date).toLocaleDateString(currentLang==='en'?'en-GB':'pl-PL',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
     const modeLbl=item.mode==='quick'?T('hist_mode_quick'):T('hist_mode_full');
-    const chips=['a','b','c','d','e','f','g'].map((k,i)=>`<span class="hist-axis-chip">${T('axes_names')[i].substring(0,4)} ${Math.round(item.pcts[k]||50)}%</span>`).join('');
+    const chips=['a','b','c','d','e','f','g','h'].map((k,i)=>`<span class="hist-axis-chip">${T('axes_names')[i].substring(0,4)} ${Math.round(item.pcts[k]||50)}%</span>`).join('');
     return `<div class="history-item" onclick='loadHistoryResult(${JSON.stringify(item)})'>
       <div class="history-item-num">${String(idx+1).padStart(2,'0')}</div>
       <div class="history-item-main">
@@ -494,7 +519,7 @@ function renderHistoryPage(){
 
 function loadHistoryResult(item){
   currentPcts={...item.pcts};
-  const axes=['a','b','c','d','e','f','g'];
+  const axes=['a','b','c','d','e','f','g','h'];
   calcMax();
   axes.forEach(k=>{scores[k]=((currentPcts[k]/100)*2-1)*maxScores[k];});
   quizMode=item.mode||'full';
@@ -504,8 +529,8 @@ function loadHistoryResult(item){
 }
 
 function drawMiniRadar(pcts){
-  const cx=40,cy=40,r=28,n=7;
-  const axes=['a','b','c','d','e','f','g'];
+  const cx=40,cy=40,r=28,n=8;
+  const axes=['a','b','c','d','e','f','g','h'];
   const isDark=document.documentElement.getAttribute('data-theme')!=='light';
   const gc=isDark?'#2a2a32':'#c8bfad';
   function polar(i,pct){
@@ -559,7 +584,25 @@ function openIdeoDetail(key, fromResults){
   });
 
   const figEl=document.getElementById('dd-figures');
-  figEl.innerHTML=(ideo.figures||[]).map(f=>`<span class="ideo-figure-tag">${f}</span>`).join('');
+  const hasBios = (ideo.figures||[]).some(f => typeof f === 'object' && f.desc);
+  if(hasBios) {
+    figEl.innerHTML = `<div class="figures-bio-list">${(ideo.figures||[]).map((f,i)=>{
+      if(typeof f !== 'object') return `<div class="figure-bio-item"><span class="ideo-figure-tag">${f}</span></div>`;
+      const bio = f.desc ? (f.desc[currentLang]||f.desc.pl) : '';
+      return `<div class="figure-bio-item">
+        <button class="figure-bio-toggle" onclick="toggleFigureBio(${i},'fig-bio-${i}')">
+          <span class="ideo-figure-tag">${f.name}</span>
+          <span class="figure-bio-arrow" id="fig-arrow-${i}">▾</span>
+        </button>
+        <div class="figure-bio-text" id="fig-bio-${i}" style="display:none">${bio}</div>
+      </div>`;
+    }).join('')}</div>`;
+  } else {
+    figEl.innerHTML=(ideo.figures||[]).map(f=>{
+      const name = typeof f === 'object' ? f.name : f;
+      return `<span class="ideo-figure-tag">${name}</span>`;
+    }).join('');
+  }
 
   const worksEl=document.getElementById('dd-works');
   worksEl.innerHTML=(ideo.works||[]).map(w=>`<div class="ideo-work-item">${w}</div>`).join('');
@@ -640,6 +683,10 @@ function getPolePl(idx,pole){
       {pl:'Przywiązanie do tradycyjnych wartości kulturowych, struktury rodziny i instytucji społecznych jako fundamentu spójności.',en:'Attachment to traditional cultural values, family structure and social institutions as a foundation of cohesion.'},
       {pl:'Wiara w konieczność ciągłej emancypacji społecznej — równości płci, praw LGBTQ+, wielokulturowości i wolności jednostki.',en:'Belief in the necessity of continuous social emancipation — gender equality, LGBTQ+ rights, multiculturalism and individual freedom.'}
     ],
+    [
+      {pl:'Przekonanie, że wyzwolenie kobiet, mniejszości i uciskanych grup jest integralną częścią lewicowego projektu emancypacyjnego.',en:'The belief that the liberation of women, minorities and oppressed groups is an integral part of the left-wing emancipatory project.'},
+      {pl:'Przekonanie, że tradycyjne wspólnoty, role i instytucje mogą być zgodne z lewicową ekonomią i nie powinny być odgórnie demontowane.',en:'The belief that traditional communities, roles and institutions can be compatible with left-wing economics and should not be dismantled top-down.'}
+    ],
   ];
   return (poles[idx][pole][currentLang]||poles[idx][pole].pl);
 }
@@ -698,8 +745,8 @@ function buildValuesGrid(){
   if(!grid) return;
   const axesNames=T('axes_names'), axesRight=T('axes_right');
   const descs={
-    pl:['Jak daleko powinna sięgnąć zmiana i jakimi środkami?','Materializm historyczny kontra idealistyczne wizje społeczeństwa.','Scentralizowane planowanie czy oddolna organizacja?','Solidarność ponadgraniczna czy priorytety narodowe?','Partie polityczne czy ruch związkowy?','Wzrost przemysłowy czy ochrona przyrody?','Tradycyjne wartości czy postęp społeczny?'],
-    en:['How far should change go, and by what means?','Historical materialism versus idealist visions of society.','Centralized planning or bottom-up organization?','Cross-border solidarity or national priorities?','Political parties or the union movement?','Industrial growth or protection of nature?','Traditional values or social progress?'],
+    pl:['Jak daleko powinna sięgnąć zmiana i jakimi środkami?','Materializm historyczny kontra idealistyczne wizje społeczeństwa.','Scentralizowane planowanie czy oddolna organizacja?','Solidarność ponadgraniczna czy priorytety narodowe?','Partie polityczne czy ruch związkowy?','Wzrost przemysłowy czy ochrona przyrody?','Tradycyjne wartości czy postęp społeczny?','Wyzwolenie kobiet i mniejszości czy wspólnota i tradycja?'],
+    en:['How far should change go, and by what means?','Historical materialism versus idealist visions of society.','Centralized planning or bottom-up organization?','Cross-border solidarity or national priorities?','Political parties or the union movement?','Industrial growth or protection of nature?','Traditional values or social progress?','Liberation of women and minorities or community and tradition?'],
   };
   grid.innerHTML = axisData.map((ax,i)=>`
     <div class="value-card" onclick="openAxisDetail(${i},false)">
@@ -710,11 +757,96 @@ function buildValuesGrid(){
     </div>`).join('');
 }
 
-// ========== INIT ==========
+function toggleFigureBio(idx, bioId) {
+  const bio = document.getElementById(bioId);
+  const arrow = document.getElementById('fig-arrow-'+idx);
+  if(!bio) return;
+  const isOpen = bio.style.display !== 'none';
+  bio.style.display = isOpen ? 'none' : 'block';
+  if(arrow) arrow.textContent = isOpen ? '▾' : '▴';
+}
+
+// ========== KEYBOARD SHORTCUTS ==========
+document.addEventListener('keydown', function(e) {
+  const quizActive = document.getElementById('page-quiz').classList.contains('active');
+  if (!quizActive) return;
+  
+  const key = e.key;
+  const keyMap = {'1': 1.0, '2': 0.5, '3': 0.0, '4': -0.5, '5': -1.0};
+  
+  if (keyMap.hasOwnProperty(key)) {
+    e.preventDefault();
+    // Highlight the button briefly
+    const btns = document.querySelectorAll('.answer-btn');
+    const idx = parseInt(key) - 1;
+    if (btns[idx]) {
+      btns[idx].classList.add('key-activated');
+      setTimeout(() => btns[idx].classList.remove('key-activated'), 200);
+    }
+    answer(keyMap[key]);
+    return;
+  }
+  
+  if (key === 'ArrowLeft' || key === 'Backspace') {
+    const backBtn = document.getElementById('btn-back');
+    if (backBtn && !backBtn.disabled) prevQ();
+  }
+  if (key === 'ArrowRight' || key === 's' || key === 'S') {
+    skipQ();
+  }
+});
+
+// Show keyboard hint in quiz
+function showKeyboardHint() {
+  const existing = document.getElementById('kb-hint');
+  if (existing) return;
+  const hint = document.createElement('div');
+  hint.id = 'kb-hint';
+  hint.className = 'kb-hint';
+  hint.innerHTML = '<span>Klawisze: <kbd>1</kbd>–<kbd>5</kbd> · <kbd>←</kbd> wróć · <kbd>S</kbd> pomiń</span>';
+  const navBtns = document.querySelector('.nav-buttons');
+  if (navBtns) navBtns.appendChild(hint);
+}
+
+// ========== ACCESSIBILITY MODE ==========
+let accessibilityMode = false;
+
+function toggleAccessibility() {
+  accessibilityMode = !accessibilityMode;
+  const html = document.documentElement;
+  if (accessibilityMode) {
+    html.setAttribute('data-a11y', 'on');
+  } else {
+    html.removeAttribute('data-a11y');
+  }
+  const btn = document.getElementById('a11y-toggle');
+  if (btn) btn.classList.toggle('active', accessibilityMode);
+  try { localStorage.setItem('lv-a11y', accessibilityMode ? '1' : '0'); } catch(e) {}
+}
+
+// ========== PWA SERVICE WORKER REGISTRATION ==========
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+
 window.addEventListener('load',()=>{
-  try{const savedLang=localStorage.getItem('lv-lang');if(savedLang){currentLang=savedLang;document.getElementById('lang-toggle').textContent=savedLang==='pl'?'EN':'PL';}}catch(e){}
+  try{
+    const savedLang=localStorage.getItem('lv-lang');
+    if(savedLang && LANGS.includes(savedLang)){
+      currentLang=savedLang;
+      const labels = {pl:'EN', en:'DE', de:'RU', ru:'PL'};
+      document.getElementById('lang-toggle').textContent=labels[savedLang]||'EN';
+    }
+  }catch(e){}
+  try{const a11y=localStorage.getItem('lv-a11y');if(a11y==='1'){accessibilityMode=true;document.documentElement.setAttribute('data-a11y','on');const btn=document.getElementById('a11y-toggle');if(btn)btn.classList.add('active');}}catch(e){}
   applyTranslations();
   loadSharedResults();
+  // Show keyboard hint after quiz starts
+  document.getElementById('page-quiz').addEventListener('transitionend', showKeyboardHint);
+  // Show onboarding for first-time visitors
+  showOnboarding();
 });
 
 function renderCompass(pcts) {
@@ -738,4 +870,313 @@ function renderCompass(pcts) {
   // Możesz dodać element <div id="quadrant-name"> w HTML i go tu aktualizować
   const quadEl = document.getElementById('quadrant-name');
   if(quadEl) quadEl.textContent = quadrant;
+}
+
+function renderDictionaryPage() {
+  const list = document.getElementById('dictionary-list');
+  if (!list) return;
+
+  // Czyścimy listę i generujemy karty dla każdego słowa ze słownika
+  list.innerHTML = Object.keys(dictionary).map(term => `
+    <div class="value-card">
+      <div class="value-card-title">${term}</div>
+      <div class="value-desc">${dictionary[term][currentLang]}</div>
+    </div>
+  `).join('');
+}
+
+// ========== LIVE RADAR IN QUIZ ==========
+let liveRadarVisible = false;
+
+function initLiveRadar() {
+  if (document.getElementById('live-radar-wrap')) return;
+  const quizContainer = document.querySelector('.quiz-container');
+  if (!quizContainer) return;
+
+  const wrap = document.createElement('div');
+  wrap.id = 'live-radar-wrap';
+  wrap.className = 'live-radar-wrap';
+  wrap.innerHTML = `
+    <div class="live-radar-label">Live</div>
+    <svg id="live-radar-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="120" height="120"></svg>
+  `;
+  quizContainer.appendChild(wrap);
+
+  // Show with a small delay so first render is meaningful
+  setTimeout(() => { wrap.classList.add('visible'); }, 400);
+}
+
+function updateLiveRadar() {
+  const svg = document.getElementById('live-radar-svg');
+  if (!svg) return;
+  svg.innerHTML = '';
+  const cx = 60, cy = 60, r = 44, n = 8;
+  const axes = ['a','b','c','d','e','f','g','h'];
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  const gc = isDark ? '#2a2a32' : '#c8bfad';
+
+  function polar(i, pct) {
+    const angle = (2 * Math.PI * i / n) - (Math.PI / 2);
+    const d = r * (pct / 100);
+    return [cx + d * Math.cos(angle), cy + d * Math.sin(angle)];
+  }
+  function polarR(i, f) {
+    const angle = (2 * Math.PI * i / n) - (Math.PI / 2);
+    return [cx + r * f * Math.cos(angle), cy + r * f * Math.sin(angle)];
+  }
+
+  // Grid rings
+  [0.25, 0.5, 0.75, 1].forEach(f => {
+    const pts = axes.map((_, i) => polarR(i, f).join(',')).join(' ');
+    const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    poly.setAttribute('points', pts);
+    poly.setAttribute('fill', 'none');
+    poly.setAttribute('stroke', gc);
+    poly.setAttribute('stroke-width', '0.8');
+    svg.appendChild(poly);
+  });
+
+  // Axis lines
+  axes.forEach((_, i) => {
+    const [x, y] = polarR(i, 1);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', cx); line.setAttribute('y1', cy);
+    line.setAttribute('x2', x); line.setAttribute('y2', y);
+    line.setAttribute('stroke', gc); line.setAttribute('stroke-width', '0.8');
+    svg.appendChild(line);
+  });
+
+  // User polygon — compute current partial pcts
+  const livePcts = {};
+  axes.forEach(k => {
+    livePcts[k] = maxScores[k] > 0 ? calcPct(scores[k], maxScores[k]) : 50;
+  });
+
+  const pts = axes.map((k, i) => polar(i, livePcts[k]).join(',')).join(' ');
+  const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+  poly.setAttribute('points', pts);
+  poly.setAttribute('fill', 'rgba(192,57,43,.3)');
+  poly.setAttribute('stroke', '#c0392b');
+  poly.setAttribute('stroke-width', '1.8');
+  svg.appendChild(poly);
+}
+
+// ========== ONBOARDING TOUR ==========
+function showOnboarding() {
+  try { if (localStorage.getItem('lv-onboarded')) return; } catch(e) {}
+
+  const steps = [
+    { icon: '✦', titleKey: 'onb_1_title', bodyKey: 'onb_1_body' },
+    { icon: '◈', titleKey: 'onb_2_title', bodyKey: 'onb_2_body' },
+    { icon: '⌨', titleKey: 'onb_3_title', bodyKey: 'onb_3_body' },
+  ];
+  let step = 0;
+
+  const overlay = document.createElement('div');
+  overlay.id = 'onboarding-overlay';
+  overlay.className = 'onb-overlay';
+
+  function render() {
+    const s = steps[step];
+    const isLast = step === steps.length - 1;
+    overlay.innerHTML = `
+      <div class="onb-card">
+        <div class="onb-icon">${s.icon}</div>
+        <div class="onb-step">${step + 1} / ${steps.length}</div>
+        <h2 class="onb-title">${T(s.titleKey)}</h2>
+        <p class="onb-body">${T(s.bodyKey)}</p>
+        <div class="onb-dots">
+          ${steps.map((_, i) => `<div class="onb-dot${i === step ? ' active' : ''}"></div>`).join('')}
+        </div>
+        <div class="onb-buttons">
+          <button class="btn-ghost onb-skip-btn" onclick="closeOnboarding()">${T('onb_skip')}</button>
+          <button class="btn-primary" onclick="onbNext()">${isLast ? T('onb_start') : T('onb_next')}</button>
+        </div>
+      </div>`;
+  }
+
+  window.onbNext = function() {
+    if (step < steps.length - 1) {
+      step++;
+      render();
+    } else {
+      closeOnboarding();
+    }
+  };
+
+  window.closeOnboarding = function() {
+    overlay.classList.add('onb-fade-out');
+    setTimeout(() => overlay.remove(), 350);
+    try { localStorage.setItem('lv-onboarded', '1'); } catch(e) {}
+  };
+
+  document.body.appendChild(overlay);
+  requestAnimationFrame(() => overlay.classList.add('onb-visible'));
+  render();
+}
+
+// ========== PNG EXPORT ==========
+function exportResultsPNG() {
+  const btn = document.getElementById('export-png-btn');
+  if (btn) { btn.textContent = T('exporting'); btn.disabled = true; }
+
+  const axes = ['a','b','c','d','e','f','g','h'];
+  const axNames = T('axes_names');
+  const axRight = T('axes_right');
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+  // Powrót do oryginalnych wymiarów
+  const W = 800, H = 560;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  // Background
+  ctx.fillStyle = isDark ? '#0a0a0b' : '#f5f0e8';
+  ctx.fillRect(0, 0, W, H);
+
+  // Header stripe (Stary styl)
+  ctx.fillStyle = isDark ? '#111114' : '#ede8dc';
+  ctx.fillRect(0, 0, W, 64);
+
+  // Logo text
+  ctx.fillStyle = isDark ? '#e8e8ec' : '#1a1410';
+  ctx.font = 'bold 22px Georgia, serif';
+  ctx.fillText('Left', 36, 40);
+  ctx.fillStyle = '#e74c3c';
+  ctx.fillText('Values', 36 + ctx.measureText('Left').width, 40);
+
+  // Ideology name
+  const ideoName = document.getElementById('r-ideology')?.textContent || '';
+  ctx.fillStyle = isDark ? '#e8e8ec' : '#1a1410';
+  ctx.font = 'bold 36px Georgia, serif';
+  ctx.fillText(ideoName, 36, 116);
+
+  // Subtitle
+  ctx.fillStyle = isDark ? '#9090a0' : '#4a3f30';
+  ctx.font = '14px IBM Plex Sans, sans-serif';
+  ctx.fillText('leftvalues.szymonrokicki.pl', 36, 140);
+
+  // Draw radar (Pozycje oryginalne)
+  const rcx = 580, rcy = 300, rr = 150, n = 8;
+
+  function polar(i, pct) {
+    const angle = (2 * Math.PI * i / n) - (Math.PI / 2);
+    const d = rr * (pct / 100);
+    return [rcx + d * Math.cos(angle), rcy + d * Math.sin(angle)];
+  }
+  function polarR(i, f) {
+    const angle = (2 * Math.PI * i / n) - (Math.PI / 2);
+    return [rcx + rr * f * Math.cos(angle), rcy + rr * f * Math.sin(angle)];
+  }
+
+  const gc = isDark ? '#2a2a32' : '#c8bfad';
+  ctx.strokeStyle = gc;
+  ctx.lineWidth = 1;
+
+  [0.25, 0.5, 0.75, 1].forEach(f => {
+    ctx.beginPath();
+    axes.forEach((_, i) => {
+      const [x, y] = polarR(i, f);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.stroke();
+  });
+
+  axes.forEach((_, i) => {
+    const [x, y] = polarR(i, 1);
+    ctx.beginPath();
+    ctx.moveTo(rcx, rcy);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  });
+
+  // User polygon
+  ctx.beginPath();
+  axes.forEach((k, i) => {
+    const [x, y] = polar(i, currentPcts[k] || 50);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(192,57,43,0.25)';
+  ctx.fill();
+  ctx.strokeStyle = '#c0392b';
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  // Dots
+  axes.forEach((k, i) => {
+    const [x, y] = polar(i, currentPcts[k] || 50);
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = '#e74c3c';
+    ctx.fill();
+  });
+
+  // Axis labels
+  ctx.font = '11px monospace';
+  ctx.fillStyle = isDark ? '#9090a0' : '#4a3f30';
+  axes.forEach((k, i) => {
+    const [x, y] = polarR(i, 1.22);
+    ctx.textAlign = 'center';
+    const pct = Math.round(currentPcts[k] || 50);
+    const label = pct >= 50 ? axNames[i] : axRight[i];
+    ctx.fillText(label, x, y);
+  });
+
+  // Left side — axis bars (Oryginalne paski kolorowe)
+  ctx.textAlign = 'left';
+  const barX = 36, barStartY = 170, barH = 8, barW = 300, gap = 32;
+
+  axes.forEach((k, i) => {
+    const pct = currentPcts[k] || 50;
+    const y = barStartY + i * gap;
+    const leftName = axNames[i];
+    const rightName = axRight[i];
+    const dominantName = pct >= 50 ? leftName : rightName;
+    const displayPct = pct >= 50 ? pct : 100 - pct;
+
+    ctx.fillStyle = isDark ? '#5a5a6a' : '#8a7a65';
+    ctx.font = '10px monospace';
+    ctx.fillText(dominantName.substring(0, 14), barX, y - 2);
+
+    ctx.fillStyle = isDark ? '#2a2a32' : '#c8bfad';
+    ctx.beginPath();
+    ctx.roundRect(barX, y + 2, barW, barH, 2);
+    ctx.fill();
+
+    const colors = ['#c0392b','#8e44ad','#2980b9','#16a085','#e67e22','#27ae60','#d35400','#2c3e50'];
+    ctx.fillStyle = colors[i] || '#c0392b';
+    ctx.beginPath();
+    ctx.roundRect(barX, y + 2, barW * (displayPct / 100), barH, 2);
+    ctx.fill();
+
+    ctx.fillStyle = isDark ? '#9090a0' : '#4a3f30';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(Math.round(displayPct) + '%', barX + barW + 30, y + 10);
+    ctx.textAlign = 'left';
+  });
+
+  // Footer (Powrót do standardowej daty)
+  ctx.fillStyle = isDark ? '#2a2a32' : '#c8bfad';
+  ctx.fillRect(0, H - 36, W, 36);
+  ctx.fillStyle = isDark ? '#5a5a6a' : '#8a7a65';
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText('leftvalues.szymonrokicki.pl · ' + new Date().toLocaleDateString(), 36, H - 14);
+
+  // Download
+  const link = document.createElement('a');
+  link.download = 'leftvalues-result.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  if (btn) { btn.textContent = T('export_png'); btn.disabled = false; }
+}
+
+function showDictionary() {
+  renderDictionaryPage(); // Najpierw budujemy listę
+  showPage('page-dictionary'); // Potem przełączamy widok na stronę słownika
 }
