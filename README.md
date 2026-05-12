@@ -1,10 +1,10 @@
-# # 🚩 LeftValues (v2.0)
+# 🚩 LeftValues (v2.0)
 
 > **Odkryj swoje lewicowe wartości.** Kompleksowy quiz polityczny badający niuanse myśli lewicowej na 8 osiach ideologicznych.
 
 ---
 
-## ## 🌟 O projekcie
+## 🌟 O projekcie
 
 LeftValues to nowoczesna, responsywna aplikacja webowa (SPA), która pozwala użytkownikowi precyzyjnie określić swoje poglądy polityczne w ramach szerokiego spektrum lewicy. W przeciwieństwie do tradycyjnych kompasów, projekt skupia się na specyficznych dla lewicy sporach taktycznych, filozoficznych i społecznych.
 
@@ -16,7 +16,7 @@ LeftValues to nowoczesna, responsywna aplikacja webowa (SPA), która pozwala uż
 
 ---
 
-## ## 🛠 Technologie
+## 🛠 Technologie
 
 * **Vanilla JavaScript (ES6+):** Logika oparta na czystym JS, brak ciężkich frameworków.
 * **CSS3 z Modern UI:** Wykorzystanie zmiennych, siatek (Grid), Flexboxa oraz zaawansowanych animacji.
@@ -25,7 +25,7 @@ LeftValues to nowoczesna, responsywna aplikacja webowa (SPA), która pozwala uż
 
 ---
 
-## ## 📊 Osie Ideologiczne
+## 📊 Osie Ideologiczne
 
 Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
@@ -42,7 +42,7 @@ Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
 ---
 
-## ## 📂 Struktura Projektu
+## 📂 Struktura Projektu
 
 * `index.html` – Główny szkielet aplikacji i kontenery dla widoków (Home, Quiz, Results, Ideologies).
 * `style.css` – Kompletny arkusz stylów (obsługa Dark/Light mode, Accessibility mode).
@@ -53,7 +53,7 @@ Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
 ---
 
-## ## 🚀 Funkcje Specjalne
+## 🚀 Funkcje Specjalne
 
 1. **Analiza Wyników:** System analizuje Twoje najbardziej zdecydowane odpowiedzi i wyświetla sekcję "Dlaczego taki wynik?".
 2. **Porównywarka:** Możliwość nałożenia wzorca dowolnej z 20 ideologii (np. Trockizmu czy Anarcho-komunizmu) na Twój własny wykres radarowy.
@@ -63,7 +63,7 @@ Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
 ---
 
-## ## 📥 Instalacja i Uruchomienie
+## 📥 Instalacja i Uruchomienie
 
 Aplikacja nie wymaga skomplikowanej konfiguracji:
 
