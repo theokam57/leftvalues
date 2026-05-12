@@ -1,147 +1,77 @@
-# LeftValues
+# # 🚩 LeftValues (v2.0)
 
-> Quiz polityczny badający Twoje lewicowe wartości na 7 osiach ideologicznych.
-
----
-
-## O projekcie
-
-LeftValues to quiz w czystym HTML/CSS/JS. Działa lokalnie po otwarciu pliku w przeglądarce i w pełni offline po pierwszym załadowaniu (Service Worker).
-
-Inspirowany oryginalnym projektem [LeftValues](https://github.com/LeftValues/leftvalues.github.io), rozbudowany o nowe pytania, ideologie i funkcje.
+> **Odkryj swoje lewicowe wartości.** Kompleksowy quiz polityczny badający niuanse myśli lewicowej na 8 osiach ideologicznych.
 
 ---
 
-## Funkcje
+## ## 🌟 O projekcie
 
-- **112 pytań** w 7 kategoriach tematycznych
-- **7 osi ideologicznych** — każda odpowiedź wpływa na jedną lub więcej osi
-- **20 ideologii** — dopasowanie wyników do najbliższej ideologii lewicowej
-- **Tryb porównaj** — nałóż wzorzec dowolnej ideologii na swoje wyniki
-- **Udostępnianie wyników** — wyniki zakodowane w URL (`#r=...`), link działa bez serwera
-- **Strona encyklopedyczna** — przeglądaj wszystkie ideologie z filtrami i mini-paskami osi
-- **Ciemny / jasny motyw** — przełącznik w headerze, preferencja zapisana w `localStorage`
-- **PWA** — możliwość instalacji jako aplikacja na telefonie (iOS i Android)
-- **Tryb offline** — Service Worker cachuje stronę po pierwszym załadowaniu
-- **Kompas polityczny** — wyswietla poglądy polityczne na osi X oraz Y
+LeftValues to nowoczesna, responsywna aplikacja webowa (SPA), która pozwala użytkownikowi precyzyjnie określić swoje poglądy polityczne w ramach szerokiego spektrum lewicy. W przeciwieństwie do tradycyjnych kompasów, projekt skupia się na specyficznych dla lewicy sporach taktycznych, filozoficznych i społecznych.
+
+**Kluczowe cechy wersji 2.0:**
+* **Modularność:** Kod został rozbity na oddzielne pliki (`app.js`, `data.js`, `i18n.js`), co ułatwia zarządzanie i rozwój.
+* **8. Oś:** Dodano oś **Emancypacja ↔ Wspólnotowość**, badającą podejście do kwestii tożsamościowych i genderowych.
+* **Kompas 2D:** Wizualizacja wyników na dwuwymiarowej mapie (Internacjonalizm/Nacjonalizm vs Centralizm/Libertarianizm).
+* **Interaktywny Słownik:** System tooltipów wyjaśniający trudne pojęcia (np. *Materializm historyczny*) bezpośrednio podczas quizu.
 
 ---
 
-## Osie ideologiczne
+## ## 🛠 Technologie
 
-| Oś | Lewa strona         | Prawa strona         |
-|----|---------------------|----------------------|
-| A  | Rewolucja           | Reforma              |
-| B  | Nauka (materializm) | Utopia               |
-| C  | Centralizm          | Decentralizm         |
-| D  | Internacjonalizm    | Nacjonalizm          |
-| E  | Partyjnizm          | Unionizm             |
-| F  | Produktywizm        | Ekologizm            |
-| G  | Konserwatyzm        | Progresywizm         |
-
-Każde pytanie ma przypisane wagi dla każdej osi (od -10 do +10). Odpowiedź "Zdecydowanie się zgadzam" mnoży wagę przez 1.0, "Zgadzam się" przez 0.5, "Nie mam zdania" przez 0.0, itd. Wynik końcowy każdej osi jest normalizowany do skali 0–100%.
+* **Vanilla JavaScript (ES6+):** Logika oparta na czystym JS, brak ciężkich frameworków.
+* **CSS3 z Modern UI:** Wykorzystanie zmiennych, siatek (Grid), Flexboxa oraz zaawansowanych animacji.
+* **PWA (Progressive Web App):** Dzięki `sw.js` aplikacja działa w pełni offline i może być zainstalowana na systemach iOS/Android.
+* **Canvas & SVG:** Dynamiczne generowanie wykresów radarowych oraz eksport wyników do formatu PNG.
 
 ---
 
-## Ideologie
+## ## 📊 Osie Ideologiczne
 
-Quiz rozpoznaje 20 ideologii podzielonych na 4 grupy:
+Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
-**Komunistyczne** — Marksizm-Leninizm, Marksizm Ortodoksyjny, Eko-Marksizm, Marksizm Centrystyczny, Komunizm Rad Pracowniczych, Lewicowy Komunizm, Maoizm, Titoizm, Trockizm
-
-**Socjalistyczne** — Utopijny Socjalizm, Demokratyczny Socjalizm, Socjaldemokracja, Zielony Socjalizm
-
-**Anarchistyczne** — Anarcho-Komunizm, Eko-Anarchizm, Anarchizm Rynkowy, Syndykalizm, Libertariański Socjalizm
-
-**Inne** — Lewicowy Nacjonalizm, Socjalizm Islamski
-
-Dopasowanie obliczane jest jako odległość euklidesowa w przestrzeni 7-wymiarowej między wynikami użytkownika a wzorcowymi wartościami każdej ideologii.
-
----
-
-## Struktura pliku
-
-Cały projekt to jeden plik `index.html`:
-
-```
-<head>
-  meta tags, PWA manifest (inline blob), Service Worker, czcionki
-<body>
-  #page-home         — strona startowa z kartami osi
-  #page-instructions — instrukcje
-  #page-quiz         — quiz z paskiem postępu
-  #page-results      — wyniki z osiami, porównywarką i udostępnianiem
-  #page-ideologies   — encyklopedia ideologii z filtrami
-<script>
-  questions{}        — 112 pytań z wagami osi
-  ideologies{}       — 20 ideologii ze wzorcowymi wartościami
-  logika quizu       — shuffle, scoring, renderowanie, routing stron
-```
+| Oś | Lewa Strona (Dodatnia) | Prawa Strona (Ujemna) | Opis |
+|:---:|:--- |:--- |:--- |
+| **A** | **Rewolucja** | **Reforma** | Metoda zmiany systemu: radykalne obalenie vs stopniowe zmiany. |
+| **B** | **Nauka** | **Utopia** | Fundament teorii: materializm dialektyczny vs wizje idealistyczne. |
+| **C** | **Centralizm** | **Decentralizm** | Zarządzanie: silne państwo vs oddolne rady/komuny. |
+| **D** | **Internacjonalizm** | **Nacjonalizm** | Zasięg ruchu: globalna solidarność vs interes narodowy. |
+| **E** | **Partyjnizm** | **Unionizm** | Narzędzie walki: zdyscyplinowana partia vs związki zawodowe (syndykalizm). |
+| **F** | **Produktywizm** | **Ekologizm** | Rozwój: industrializacja vs ochrona biosfery i degrowth. |
+| **G** | **Konserwatyzm** | **Progresywizm** | Kultura: tradycyjne wartości vs wolność jednostki i postęp społeczny. |
+| **H** | **Emancypacja** | **Wspólnotowość** | Tożsamość: walka z patriarchatem vs priorytet wspólnoty klasowej. |
 
 ---
 
-## Uruchamianie
+## ## 📂 Struktura Projektu
 
-Otwórz plik bezpośrednio w przeglądarce:
-
-```bash
-# Lokalnie
-open index.html
-
-# Lub przez prosty serwer HTTP (wymagany dla Service Workera)
-python3 -m http.server 8080
-# → http://localhost:8080/index.html
-```
-
-> Service Worker wymaga kontekstu HTTPS lub `localhost` — przy otwieraniu pliku przez `file://` tryb offline nie zadziała, ale cała reszta quizu działa normalnie.
+* `index.html` – Główny szkielet aplikacji i kontenery dla widoków (Home, Quiz, Results, Ideologies).
+* `style.css` – Kompletny arkusz stylów (obsługa Dark/Light mode, Accessibility mode).
+* `data.js` – Baza 129 pytań, definicje 20 ideologii oraz dane historyczne osi.
+* `app.js` – Główny silnik: scoring, routing, generowanie wykresów (Radar, Compass).
+* `i18n.js` – System wielojęzyczności (PL, EN, DE, RU) i dynamicznego podmieniania treści.
+* `sw.js` – Service Worker umożliwiający działanie w trybie offline i caching zasobów.
 
 ---
 
-## Instalacja jako aplikacja mobilna
+## ## 🚀 Funkcje Specjalne
 
-**Android (Chrome)**
-1. Otwórz stronę w Chrome
-2. Menu → "Dodaj do ekranu głównego"
-3. Aplikacja pojawia się w launcherze bez paska przeglądarki
-
-**iOS (Safari)**
-1. Otwórz stronę w Safari
-2. Przycisk udostępniania → "Dodaj do ekranu głównego"
-3. Aplikacja działa w trybie pełnoekranowym
+1. **Analiza Wyników:** System analizuje Twoje najbardziej zdecydowane odpowiedzi i wyświetla sekcję "Dlaczego taki wynik?".
+2. **Porównywarka:** Możliwość nałożenia wzorca dowolnej z 20 ideologii (np. Trockizmu czy Anarcho-komunizmu) na Twój własny wykres radarowy.
+3. **Historia Lokalna:** Wyniki są automatycznie zapisywane w `localStorage`, co pozwala na porównywanie swoich poglądów w czasie.
+4. **Eksport do PNG:** Wbudowany generator grafik pozwala pobrać kartę wyników gotową do udostępnienia.
+5. **Tryb Dostępności (A+):** Specjalny tryb zwiększający kontrast i powiększający fonty dla osób niedowidzących.
 
 ---
 
-## Udostępnianie wyników
+## ## 📥 Instalacja i Uruchomienie
 
-Wyniki są kodowane w hashu URL jako 7 liczb (wartości procentowe każdej osi):
+Aplikacja nie wymaga skomplikowanej konfiguracji:
 
-```
-https://leftvalues.szymonorkicki.pl/quiz.html#r=72-45-60-80-55-30-88
-```
-
-Każda liczba odpowiada osi A–G w kolejności. Link można skopiować przyciskiem na stronie wyników — odbiorca zobaczy dokładnie te same wyniki.
-
----
-
-## Wkład i sugestie
-
-Projekt jest otwarty na rozszerzenia:
-
-- Dodanie pytań — rozszerz obiekt `questions` w skrypcie, zachowując format `{pl:"...", a:N, b:N, ...}`
-- Dodanie ideologii — rozszerz obiekt `ideologies` z polem `tag` (communist/socialist/anarchist/other)
-- Tłumaczenia — pytania mają pole `pl`, można dodać `en`, `de` itp. i przełączać język dynamicznie
+1. Sklonuj repozytorium.
+2. Uruchom lokalny serwer (np. `Live Server` w VS Code lub `python -m http.server`).
+   * *Uwaga: Service Worker i PWA wymagają serwera HTTP (localhost) do poprawnego działania.*
+3. Otwórz `index.html` w przeglądarce.
 
 ---
-
-## Technologie
-
-- Czysty HTML5 / CSS3 / JavaScript (ES6+) — zero zależności runtime
-- [Google Fonts](https://fonts.google.com) — Playfair Display, IBM Plex Mono, IBM Plex Sans
-- Web App Manifest (generowany inline jako Blob URL)
-- Service Worker (rejestrowany inline jako Blob URL)
-
----
-
-## Licencja
-
-Projekt na licencji MIT. Możesz swobodnie używać, modyfikować i dystrybuować.
+*Autor projektu: Szymon Rokicki*
+*Inspirowane oryginalnym projektem LeftValues.*
