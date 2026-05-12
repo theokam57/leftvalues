@@ -6,7 +6,7 @@
 
 ## O projekcie
 
-LeftValues to jednostronicowy quiz w czystym HTML/CSS/JS. Działa lokalnie po otwarciu pliku w przeglądarce i w pełni offline po pierwszym załadowaniu (Service Worker).
+LeftValues to quiz w czystym HTML/CSS/JS. Działa lokalnie po otwarciu pliku w przeglądarce i w pełni offline po pierwszym załadowaniu (Service Worker).
 
 Inspirowany oryginalnym projektem [LeftValues](https://github.com/LeftValues/leftvalues.github.io), rozbudowany o nowe pytania, ideologie i funkcje.
 
@@ -23,6 +23,7 @@ Inspirowany oryginalnym projektem [LeftValues](https://github.com/LeftValues/lef
 - **Ciemny / jasny motyw** — przełącznik w headerze, preferencja zapisana w `localStorage`
 - **PWA** — możliwość instalacji jako aplikacja na telefonie (iOS i Android)
 - **Tryb offline** — Service Worker cachuje stronę po pierwszym załadowaniu
+- **Kompas polityczny** — wyswietla poglądy polityczne na osi X oraz Y
 
 ---
 
