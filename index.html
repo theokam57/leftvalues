@@ -11,536 +11,22 @@
 <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f5f0e8" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="dark light">
-
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://leftvalues.github.io/">
 <meta property="og:title" content="LeftValues — Odkryj swoje lewicowe wartości">
 <meta property="og:description" content="112 pytań, 7 osi ideologicznych, 20 ideologii. Sprawdź, gdzie na mapie lewicy się znajdujesz.">
-<meta property="og:image" content="https://leftvalues.github.io/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="LeftValues">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://leftvalues.github.io/">
-<meta name="twitter:title" content="LeftValues — Odkryj swoje lewicowe wartości">
-<meta name="twitter:description" content="112 pytań, 7 osi ideologicznych, 20 ideologii. Sprawdź, gdzie na mapie lewicy się znajdujesz.">
-<meta name="twitter:image" content="https://leftvalues.github.io/og-image.png">
-
-<!-- PWA / Web App -->
 <meta name="application-name" content="LeftValues">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="LeftValues">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="format-detection" content="telephone=no">
-
-<!-- Apple Touch Icons -->
-<link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230a0a0b'/%3E%3Ctext x='90' y='125' font-size='110' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" sizes="152x152" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 152 152'%3E%3Crect width='152' height='152' fill='%230a0a0b'/%3E%3Ctext x='76' y='108' font-size='94' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" sizes="120x120" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%230a0a0b'/%3E%3Ctext x='60' y='86' font-size='74' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-
-<!-- Favicon SVG (skalowalne, obsługuje dark mode) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0b'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0b'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E">
-
-<!-- Web Manifest -->
-<script>
-(function(){
-  const manifest={
-    name:"LeftValues — Odkryj swoje lewicowe wartości",
-    short_name:"LeftValues",
-    description:"Quiz polityczny z 112 pytaniami i 7 osiami ideologicznymi.",
-    lang:"pl",
-    start_url:"./",
-    display:"standalone",
-    orientation:"portrait-primary",
-    background_color:"#0a0a0b",
-    theme_color:"#0a0a0b",
-    categories:["education","lifestyle","politics"],
-    icons:[
-      {src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='80' fill='%230a0a0b'/%3E%3Ctext x='256' y='370' font-size='340' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E",sizes:"512x512",type:"image/svg+xml",purpose:"any maskable"},
-      {src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='30' fill='%230a0a0b'/%3E%3Ctext x='96' y='140' font-size='130' text-anchor='middle' fill='%23e74c3c' font-family='Georgia,serif' font-weight='900'%3EL%3C/text%3E%3C/svg%3E",sizes:"192x192",type:"image/svg+xml",purpose:"any"},
-    ],
-    screenshots:[
-      {label:"Ekran główny",sizes:"390x844",type:"image/png",form_factor:"narrow"},
-    ],
-    shortcuts:[
-      {name:"Rozpocznij quiz",short_name:"Quiz",description:"Zacznij quiz od razu",url:"./#quiz",icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='%23c0392b'/%3E%3Ctext x='48' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Georgia'%3E%3F%3C/text%3E%3C/svg%3E",sizes:"96x96"}]},
-      {name:"Wszystkie ideologie",short_name:"Ideologie",description:"Przeglądaj ideologie",url:"./#ideologies",icons:[{src:"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='%238e44ad'/%3E%3Ctext x='48' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Georgia'%3E%E2%98%86%3C/text%3E%3C/svg%3E",sizes:"96x96"}]},
-    ]
-  };
-  const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement('link');
-  link.rel='manifest';link.href=url;
-  document.currentScript.parentNode.appendChild(link);
-})();
-</script>
-
-<!-- Service Worker dla trybu offline -->
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>{
-    // inline SW jako blob
-    const swCode=`
-const CACHE='leftvalues-v1';
-const ASSETS=[
-  self.location.href,
-  'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap',
-];
-self.addEventListener('install',e=>{
-  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS).catch(()=>{})));
-  self.skipWaiting();
-});
-self.addEventListener('activate',e=>{
-  e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));
-  self.clients.claim();
-});
-self.addEventListener('fetch',e=>{
-  if(e.request.method!=='GET')return;
-  e.respondWith(
-    caches.match(e.request).then(cached=>{
-      if(cached)return cached;
-      return fetch(e.request).then(resp=>{
-        if(!resp||resp.status!==200||resp.type==='opaque')return resp;
-        const clone=resp.clone();
-        caches.open(CACHE).then(c=>c.put(e.request,clone));
-        return resp;
-      }).catch(()=>cached||new Response('Offline',{status:503}));
-    })
-  );
-});`;
-    const blob=new Blob([swCode],{type:'application/javascript'});
-    const url=URL.createObjectURL(blob);
-    navigator.serviceWorker.register(url,{scope:'./'}).catch(()=>{});
-  });
-}
-</script>
-
-<!-- Canonical -->
 <link rel="canonical" href="https://leftvalues.github.io/">
-
-<!-- Preconnect dla Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* ========== THEME VARS ========== */
-:root,[data-theme="dark"]{
-  --bg:#0a0a0b;
-  --bg2:#111114;
-  --bg3:#1a1a1f;
-  --border:#2a2a32;
-  --border2:#3a3a45;
-  --text:#e8e8ec;
-  --text2:#9090a0;
-  --text3:#5a5a6a;
-  --red:#8b1a1a;
-  --red2:#c0392b;
-  --red3:#e74c3c;
-  --accent:#6b0f1a;
-  --gold:#c9a84c;
-  --gold2:#f0c060;
-  --shadow:rgba(0,0,0,.5);
-  --theme-icon:'☀';
-}
-[data-theme="light"]{
-  --bg:#f5f0e8;
-  --bg2:#ede8dc;
-  --bg3:#e4ddd0;
-  --border:#c8bfad;
-  --border2:#b0a490;
-  --text:#1a1410;
-  --text2:#4a3f30;
-  --text3:#8a7a65;
-  --red:#8b1a1a;
-  --red2:#c0392b;
-  --red3:#e74c3c;
-  --accent:#6b0f1a;
-  --gold:#8a6420;
-  --gold2:#b07d00;
-  --shadow:rgba(0,0,0,.15);
-  --theme-icon:'☾';
-}
-
-html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;transition:background .3s,color .3s}
-body{overflow-x:hidden}
-
-/* noise */
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;opacity:.4;
-}
-
-/* ========== PAGES ========== */
-.page{display:none;min-height:100vh;position:relative;z-index:1}
-.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
-#page-home,#page-instructions,#page-quiz,#page-results,#page-ideologies{justify-content:flex-start}
-
-/* ========== HEADER ========== */
-.header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1rem 2rem;
-  border-bottom:1px solid var(--border);
-  background:rgba(10,10,11,.92);
-  backdrop-filter:blur(12px);
-  transition:background .3s,border-color .3s;
-}
-[data-theme="light"] .header{background:rgba(245,240,232,.92)}
-.logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.4rem;font-weight:900;letter-spacing:-.02em;
-  color:var(--text);cursor:pointer;transition:color .3s;
-}
-.logo span{color:var(--red3)}
-.header-right{display:flex;align-items:center;gap:1rem}
-.header-status{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.8rem;color:var(--text3);
-  transition:color .3s;
-}
-.theme-toggle{
-  background:transparent;border:1px solid var(--border2);
-  color:var(--text2);width:2rem;height:2rem;border-radius:50%;
-  cursor:pointer;font-size:.9rem;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .2s;
-}
-.theme-toggle:hover{border-color:var(--text2);color:var(--text)}
-
-/* ========== HOME PAGE ========== */
-#page-home{padding-top:80px}
-.home-hero{
-  width:100%;max-width:900px;margin:0 auto;
-  padding:5rem 2rem 3rem;text-align:center;
-}
-.home-hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(4rem,12vw,9rem);
-  font-weight:900;line-height:.9;
-  letter-spacing:-.04em;color:var(--text);margin-bottom:1rem;
-  transition:color .3s;
-}
-.home-hero h1 span{
-  display:block;color:var(--red3);
-  font-size:.45em;letter-spacing:0;
-  font-weight:400;font-style:italic;margin-top:.3rem;
-}
-.home-hero p{
-  font-size:1.1rem;line-height:1.7;color:var(--text2);
-  max-width:600px;margin:1.5rem auto 2.5rem;transition:color .3s;
-}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-
-/* ========== BUTTONS ========== */
-.btn-primary{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:var(--red2);color:#fff;
-  font-family:'IBM Plex Sans',sans-serif;
-  font-size:1.05rem;font-weight:500;
-  padding:.85rem 2.2rem;border-radius:3px;
-  border:none;cursor:pointer;
-  transition:background .2s,transform .15s;
-  text-transform:uppercase;letter-spacing:.08em;
-}
-.btn-primary:hover{background:var(--red3);transform:translateY(-1px)}
-.btn-primary:active{transform:translateY(0)}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:transparent;color:var(--text2);
-  font-family:'IBM Plex Sans',sans-serif;
-  font-size:.95rem;font-weight:400;
-  padding:.7rem 1.5rem;border-radius:3px;
-  border:1px solid var(--border2);cursor:pointer;
-  transition:all .2s;
-}
-.btn-ghost:hover{color:var(--text);border-color:var(--text2)}
-
-/* ========== VALUE CARDS ========== */
-.values-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1px;background:var(--border);
-  max-width:900px;width:100%;margin:3rem auto;
-  border:1px solid var(--border);
-}
-.value-card{background:var(--bg2);padding:1.5rem;transition:background .2s}
-.value-card:hover{background:var(--bg3)}
-.value-card-title{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.75rem;font-weight:500;
-  text-transform:uppercase;letter-spacing:.12em;
-  color:var(--text3);margin-bottom:.6rem;
-}
-.value-pair{display:flex;align-items:center;gap:.5rem;font-size:1rem;font-weight:500}
-.vs{color:var(--text3);font-size:.8rem;font-weight:300}
-.value-desc{font-size:.85rem;line-height:1.5;color:var(--text2);margin-top:.6rem}
-
-/* ========== INSTRUCTIONS ========== */
-#page-instructions{padding-top:80px}
-.inst-container{max-width:600px;width:100%;padding:2rem;text-align:center}
-.inst-container h2{
-  font-family:'Playfair Display',serif;
-  font-size:3rem;font-weight:700;margin-bottom:1.5rem;color:var(--text);
-}
-.inst-container p{font-size:1.1rem;line-height:1.7;color:var(--text2);margin-bottom:2.5rem}
-.inst-buttons{display:flex;flex-direction:column;gap:.8rem;align-items:center}
-
-/* ========== QUIZ ========== */
-#page-quiz{padding-top:80px}
-.quiz-container{
-  width:100%;max-width:860px;padding:2rem;
-  display:flex;flex-direction:column;align-items:center;
-}
-.progress-bar-wrap{
-  width:100%;height:3px;background:var(--border);
-  margin-bottom:3rem;border-radius:2px;overflow:hidden;
-}
-.progress-bar-fill{
-  height:100%;background:var(--red3);
-  transition:width .4s cubic-bezier(.4,0,.2,1);
-}
-.q-number{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.8rem;color:var(--text3);
-  text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;
-}
-.q-text{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.6rem,3.5vw,2.4rem);
-  line-height:1.3;text-align:center;
-  color:var(--text);margin-bottom:3rem;
-  min-height:6rem;
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .18s,transform .18s;
-}
-.q-text.slide-out{opacity:0;transform:translateY(-12px)}
-.q-text.slide-in{animation:slideIn .22s ease forwards}
-@keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-.answers{width:100%;display:flex;flex-direction:column;gap:.6rem;max-width:560px}
-.answer-btn{
-  width:100%;padding:1rem 1.5rem;
-  background:var(--bg2);border:1px solid var(--border);
-  color:var(--text);font-family:'IBM Plex Sans',sans-serif;
-  font-size:.95rem;font-weight:400;
-  cursor:pointer;border-radius:3px;text-align:center;
-  transition:all .18s;position:relative;overflow:hidden;
-}
-.answer-btn::before{
-  content:'';position:absolute;inset:0;
-  background:var(--red2);opacity:0;transition:opacity .18s;
-}
-.answer-btn:hover::before{opacity:.12}
-.answer-btn:hover{border-color:var(--red2);transform:translateX(3px)}
-.answer-btn.chosen{border-color:var(--gold);background:var(--bg3)}
-.answer-btn.sa{border-left:3px solid #27ae60}
-.answer-btn.a{border-left:3px solid #2ecc71}
-.answer-btn.n{border-left:3px solid var(--text3)}
-.answer-btn.d{border-left:3px solid #e67e22}
-.answer-btn.sd{border-left:3px solid var(--red3)}
-.answer-btn span{position:relative;z-index:1}
-.nav-buttons{display:flex;gap:1rem;margin-top:1.5rem;align-items:center}
-.btn-back{
-  background:transparent;border:1px solid var(--border);
-  color:var(--text3);padding:.6rem 1.2rem;
-  font-family:'IBM Plex Mono',monospace;font-size:.8rem;
-  cursor:pointer;border-radius:3px;
-  text-transform:uppercase;letter-spacing:.08em;transition:all .2s;
-}
-.btn-back:hover:not(:disabled){color:var(--text);border-color:var(--text2)}
-.btn-back:disabled{opacity:.3;cursor:not-allowed}
-.mono-tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
-
-/* ========== RESULTS ========== */
-#page-results{padding-top:80px}
-.results-container{width:100%;max-width:900px;padding:3rem 2rem}
-.results-title{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.9rem;color:var(--text3);
-  text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem;
-}
-.ideology-name{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  font-weight:900;line-height:1;
-  margin-bottom:.5rem;color:var(--text);
-}
-.ideology-desc{
-  font-size:1rem;line-height:1.6;color:var(--text2);
-  max-width:680px;margin-bottom:3rem;
-  padding-bottom:2rem;border-bottom:1px solid var(--border);
-}
-
-/* axes */
-.axes{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:3rem}
-.axis-label-row{display:flex;justify-content:space-between;margin-bottom:.4rem}
-.axis-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.75rem;font-weight:500;
-  text-transform:uppercase;letter-spacing:.1em;
-}
-.axis-bar-track{
-  height:28px;background:var(--bg3);border:1px solid var(--border);
-  border-radius:2px;overflow:hidden;position:relative;display:flex;
-}
-.axis-left-fill{
-  height:100%;transition:width .9s cubic-bezier(.4,0,.2,1);
-  display:flex;align-items:center;padding:0 .5rem;
-}
-.axis-pct{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:.7rem;font-weight:500;color:rgba(255,255,255,.7);white-space:nowrap;
-}
-/* compare overlay */
-.axis-compare-marker{
-  position:absolute;top:0;bottom:0;width:3px;
-  background:var(--gold2);opacity:.9;
-  transition:left .9s cubic-bezier(.4,0,.2,1);
-  z-index:2;
-}
-.axis-compare-marker::after{
-  content:'▲';position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
-  font-size:.5rem;color:var(--gold2);
-}
-
-/* next matches */
-.next-matches-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;font-weight:700;margin-bottom:1rem;color:var(--text);
-}
-.ideology-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:3rem}
-.ideology-item{
-  display:flex;align-items:center;gap:1rem;
-  padding:.8rem 1rem;background:var(--bg2);
-  border:1px solid var(--border);border-radius:3px;
-  transition:background .2s;cursor:default;
-}
-.ideology-item:hover{background:var(--bg3)}
-.ideology-item-name{font-size:.95rem;font-weight:500;flex:1}
-.ideology-item-bar{width:140px;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
-.ideology-item-fill{height:100%;background:var(--red2);border-radius:3px;transition:width 1s}
-.ideology-item-pct{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--text2);min-width:3.5rem;text-align:right}
-
-/* compare panel */
-.compare-panel{
-  border:1px solid var(--border);border-radius:3px;
-  padding:1.5rem;background:var(--bg2);margin-bottom:2rem;
-}
-.compare-panel h3{
-  font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:1rem;color:var(--text);
-}
-.compare-select{
-  background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text);font-family:'IBM Plex Sans',sans-serif;
-  font-size:.9rem;padding:.6rem 1rem;border-radius:3px;
-  width:100%;max-width:360px;cursor:pointer;margin-bottom:1rem;
-}
-.compare-legend{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem}
-.legend-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text2)}
-.legend-dot{width:10px;height:10px;border-radius:50%}
-
-/* share */
-.share-section{border-top:1px solid var(--border);padding-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
-.share-url-box{
-  display:flex;gap:.5rem;width:100%;
-}
-.share-url-input{
-  flex:1;background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text2);font-family:'IBM Plex Mono',monospace;
-  font-size:.75rem;padding:.6rem 1rem;border-radius:3px;
-  min-width:0;
-}
-.btn-copy{
-  background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text2);font-family:'IBM Plex Mono',monospace;
-  font-size:.75rem;padding:.6rem 1rem;border-radius:3px;
-  cursor:pointer;transition:all .2s;white-space:nowrap;
-}
-.btn-copy:hover{color:var(--text);border-color:var(--text2)}
-.btn-copy.copied{color:#27ae60;border-color:#27ae60}
-.divider{height:1px;background:var(--border);width:100%;margin:2rem 0}
-
-/* ========== IDEOLOGIES PAGE ========== */
-#page-ideologies{padding-top:80px}
-.ideologies-container{width:100%;max-width:1100px;padding:3rem 2rem}
-.ideologies-container h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:.5rem;color:var(--text);
-}
-.ideologies-subtitle{font-size:1rem;color:var(--text2);margin-bottom:2rem}
-.ideo-filter{
-  display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;
-}
-.ideo-filter-btn{
-  background:var(--bg2);border:1px solid var(--border);
-  color:var(--text3);font-family:'IBM Plex Mono',monospace;
-  font-size:.7rem;padding:.4rem .9rem;border-radius:2px;cursor:pointer;
-  text-transform:uppercase;letter-spacing:.08em;transition:all .2s;
-}
-.ideo-filter-btn:hover,.ideo-filter-btn.active{
-  background:var(--red2);border-color:var(--red2);color:#fff;
-}
-.ideo-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:1px;background:var(--border);border:1px solid var(--border);
-}
-.ideo-card{
-  background:var(--bg2);padding:1.5rem;transition:background .2s;
-}
-.ideo-card:hover{background:var(--bg3)}
-.ideo-card-name{
-  font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;
-  margin-bottom:.4rem;color:var(--text);
-}
-.ideo-card-tag{
-  font-family:'IBM Plex Mono',monospace;font-size:.65rem;
-  text-transform:uppercase;letter-spacing:.1em;
-  color:var(--red3);margin-bottom:.8rem;
-}
-.ideo-card-desc{font-size:.85rem;line-height:1.5;color:var(--text2);margin-bottom:1rem}
-.ideo-mini-axes{display:flex;flex-direction:column;gap:.4rem}
-.ideo-mini-row{display:flex;align-items:center;gap:.5rem}
-.ideo-mini-label{
-  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
-  text-transform:uppercase;letter-spacing:.06em;
-  color:var(--text3);width:90px;flex-shrink:0;
-}
-.ideo-mini-bar{flex:1;height:6px;background:var(--border);border-radius:2px;overflow:hidden}
-.ideo-mini-fill{height:100%;border-radius:2px;transition:width .6s}
-
-/* ========== ANIMATIONS ========== */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp .5s ease both}
-.fade-up-1{animation-delay:.05s}
-.fade-up-2{animation-delay:.1s}
-.fade-up-3{animation-delay:.18s}
-.fade-up-4{animation-delay:.26s}
-
-/* answer bounce */
-@keyframes answerPulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-.answer-pulse{animation:answerPulse .18s ease}
-
-/* ========== SCROLLBAR ========== */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:600px){
-  .header{padding:1rem}
-  .home-hero{padding:3rem 1.5rem 2rem}
-  .results-container,.quiz-container,.ideologies-container{padding:2rem 1rem}
-  .share-url-box{flex-direction:column}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -549,6 +35,7 @@ body::before{
   <div class="logo" onclick="goHome()">Left<span>Values</span></div>
   <div class="header-right">
     <span class="header-status mono-tag" id="header-status"></span>
+    <button class="lang-toggle" id="lang-toggle" title="Zmień język" onclick="toggleLang()">EN</button>
     <button class="theme-toggle" id="theme-toggle" title="Zmień motyw" onclick="toggleTheme()">☀</button>
   </div>
 </header>
@@ -557,59 +44,36 @@ body::before{
 <div class="page active" id="page-home">
   <div class="home-hero">
     <h1>Left<br><span>Values</span></h1>
-    <p>Odkryj swoje lewicowe wartości. Quiz z <span id="q-count">—</span> pytaniami obejmującymi 7 osi ideologicznych.</p>
+    <p id="home-desc">Odkryj swoje lewicowe wartości. Quiz z <span id="q-count">—</span> pytaniami obejmującymi 7 osi ideologicznych.</p>
     <div class="hero-buttons">
-      <button class="btn-primary fade-up fade-up-1" onclick="showPage('instructions')">Rozpocznij quiz →</button>
-      <button class="btn-ghost fade-up fade-up-2" onclick="showPage('ideologies')">Przeglądaj ideologie</button>
+      <button class="btn-primary fade-up fade-up-1" onclick="showPage('instructions')" id="btn-start-quiz">Rozpocznij quiz →</button>
+      <button class="btn-ghost fade-up fade-up-2" onclick="showPage('ideologies')" id="btn-browse">Przeglądaj ideologie</button>
+      <button class="btn-ghost fade-up fade-up-3" onclick="showPage('history')" id="btn-history">Historia wyników</button>
     </div>
   </div>
-  <div class="values-grid fade-up fade-up-3">
-    <div class="value-card">
-      <div class="value-card-title">Oś A</div>
-      <div class="value-pair">Rewolucja <span class="vs">vs</span> Reforma</div>
-      <div class="value-desc">Jak daleko powinna sięgnąć zmiana i jakimi środkami?</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś B</div>
-      <div class="value-pair">Nauka <span class="vs">vs</span> Utopia</div>
-      <div class="value-desc">Materializm historyczny kontra idealistyczne wizje społeczeństwa.</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś C</div>
-      <div class="value-pair">Centralizm <span class="vs">vs</span> Decentralizm</div>
-      <div class="value-desc">Scentralizowane planowanie czy oddolna organizacja?</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś D</div>
-      <div class="value-pair">Internacjonalizm <span class="vs">vs</span> Nacjonalizm</div>
-      <div class="value-desc">Solidarność ponadgraniczna czy priorytety narodowe?</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś E</div>
-      <div class="value-pair">Partyjnizm <span class="vs">vs</span> Unionizm</div>
-      <div class="value-desc">Partie polityczne czy ruch związkowy?</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś F</div>
-      <div class="value-pair">Produktywizm <span class="vs">vs</span> Ekologizm</div>
-      <div class="value-desc">Wzrost przemysłowy czy ochrona przyrody?</div>
-    </div>
-    <div class="value-card">
-      <div class="value-card-title">Oś G</div>
-      <div class="value-pair">Konserwatyzm <span class="vs">vs</span> Progresywizm</div>
-      <div class="value-desc">Tradycyjne wartości czy postęp społeczny?</div>
-    </div>
+  <div class="values-grid fade-up fade-up-3" id="values-grid">
   </div>
 </div>
 
 <!-- ===================== INSTRUCTIONS ===================== -->
 <div class="page" id="page-instructions">
   <div class="inst-container">
-    <h2>Zasady</h2>
-    <p>Quiz zawiera <strong id="q-count2">—</strong> pytań. Odpowiedz na każde z nich, wybierając opcję najlepiej opisującą Twoje poglądy. Możesz wrócić do poprzedniego pytania w dowolnym momencie.</p>
+    <h2 id="inst-title">Zasady</h2>
+    <p id="inst-desc">Quiz zawiera <strong id="q-count2">—</strong> pytań w trybie pełnym. Odpowiedz na każde z nich, wybierając opcję najlepiej opisującą Twoje poglądy. Możesz wrócić do poprzedniego pytania lub pominąć pytanie.</p>
+    <p id="inst-mode-label" style="font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.5rem">Wybierz tryb quizu:</p>
+    <div class="mode-select" id="mode-select">
+      <button class="mode-btn active" id="mode-full" onclick="selectMode('full',this)">
+        <span class="mode-name" id="mode-full-name">Pełny</span>
+        <span class="mode-desc" id="mode-full-desc">112 pytań · precyzyjny wynik</span>
+      </button>
+      <button class="mode-btn" id="mode-quick" onclick="selectMode('quick',this)">
+        <span class="mode-name" id="mode-quick-name">Szybki</span>
+        <span class="mode-desc" id="mode-quick-desc">30 pytań · orientacyjny wynik</span>
+      </button>
+    </div>
     <div class="inst-buttons">
-      <button class="btn-primary" onclick="startQuiz()">Zacznij →</button>
-      <button class="btn-ghost" onclick="showPage('home')">Wróć</button>
+      <button class="btn-primary" onclick="startQuiz()" id="btn-start">Zacznij →</button>
+      <button class="btn-ghost" onclick="showPage('home')" id="btn-back-home">Wróć</button>
     </div>
   </div>
 </div>
@@ -625,14 +89,15 @@ body::before{
     <div class="q-number" id="q-number">Pytanie 1 z —</div>
     <div class="q-text" id="q-text">Ładowanie pytania…</div>
     <div class="answers" id="answers">
-      <button class="answer-btn sa" onclick="answer(1.0)"><span>Zdecydowanie się zgadzam</span></button>
-      <button class="answer-btn a" onclick="answer(0.5)"><span>Zgadzam się</span></button>
-      <button class="answer-btn n" onclick="answer(0.0)"><span>Nie mam zdania</span></button>
-      <button class="answer-btn d" onclick="answer(-0.5)"><span>Nie zgadzam się</span></button>
-      <button class="answer-btn sd" onclick="answer(-1.0)"><span>Zdecydowanie się nie zgadzam</span></button>
+      <button class="answer-btn sa" onclick="answer(1.0)"><span id="ans-sa">Zdecydowanie się zgadzam</span></button>
+      <button class="answer-btn a" onclick="answer(0.5)"><span id="ans-a">Zgadzam się</span></button>
+      <button class="answer-btn n" onclick="answer(0.0)"><span id="ans-n">Nie mam zdania</span></button>
+      <button class="answer-btn d" onclick="answer(-0.5)"><span id="ans-d">Nie zgadzam się</span></button>
+      <button class="answer-btn sd" onclick="answer(-1.0)"><span id="ans-sd">Zdecydowanie się nie zgadzam</span></button>
     </div>
     <div class="nav-buttons">
-      <button class="btn-back" id="btn-back" onclick="prevQ()" disabled>← Wróć</button>
+      <button class="btn-back" id="btn-back" onclick="prevQ()" disabled>← <span id="nav-back">Wróć</span></button>
+      <button class="btn-skip" id="btn-skip" onclick="skipQ()"><span id="nav-skip">Pomiń</span> →</button>
       <span class="mono-tag" id="q-axis-label"></span>
     </div>
   </div>
@@ -641,43 +106,62 @@ body::before{
 <!-- ===================== RESULTS ===================== -->
 <div class="page" id="page-results">
   <div class="results-container">
-    <div class="results-title fade-up">Twój wynik</div>
-    <div class="ideology-name fade-up fade-up-1" id="r-ideology">—</div>
+    <div class="results-title fade-up" id="r-title">Twój wynik</div>
+    <div class="ideology-name fade-up fade-up-1" id="r-ideology" onclick="openIdeoDetailFromResult()">—</div>
     <div class="ideology-desc fade-up fade-up-2" id="r-desc">Obliczanie wyników…</div>
 
-    <div class="mono-tag" style="margin-bottom:1rem">Twoje wartości na osiach</div>
+    <!-- RADAR CHART -->
+    <div class="radar-wrap fade-up">
+      <div class="radar-title" id="r-radar-title">Wykres radarowy</div>
+      <svg id="radar-chart" viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="radar-legend" id="radar-legend"></div>
+    </div>
+
+    <div class="radar-wrap fade-up">
+      <div class="radar-title">Kompas Polityczny</div>
+      <div class="compass-container">
+        <div class="compass-axis-label vertical">Autorytaryzm</div>
+        <div class="compass-axis-label vertical bottom">Libertarianizm</div>
+        <div class="compass-axis-label horizontal left">Lewica</div>
+        <div class="compass-axis-label horizontal right">Prawica</div>
+        <div id="compass-dot" class="compass-dot"></div>
+      </div>
+    </div>
+    <div id="compass-label" class="fade-up fade-up-3" style="text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--red3); margin-top:1rem; font-weight:500;">—</div>
+
+    <div class="mono-tag" style="margin-bottom:1rem" id="r-axes-title">Twoje wartości na osiach</div>
     <div class="axes" id="axes-display"></div>
 
     <!-- COMPARE PANEL -->
     <div class="compare-panel fade-up">
-      <h3>Porównaj z ideologią</h3>
+      <h3 id="r-compare-title">Porównaj z ideologią</h3>
       <select class="compare-select" id="compare-select" onchange="renderCompare()">
-        <option value="">— wybierz ideologię —</option>
+        <option value="" id="compare-default">— wybierz ideologię —</option>
       </select>
       <div class="compare-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:var(--red2)"></div>Twoje wartości</div>
-        <div class="legend-item"><div class="legend-dot" style="background:var(--gold2)"></div>Wzorzec ideologii</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red2)"></div><span id="legend-you">Twoje wartości</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gold2)"></div><span id="legend-ideo">Wzorzec ideologii</span></div>
       </div>
     </div>
 
-    <div class="next-matches-title">Inne ideologie</div>
+    <div class="next-matches-title" id="r-other-title">Inne ideologie</div>
     <div class="ideology-list" id="ideology-list"></div>
 
-    <!-- SHARE -->
     <div class="share-section">
-      <button class="btn-primary" onclick="showPage('home')">Strona główna</button>
-      <button class="btn-ghost" onclick="startQuiz()">Rozwiąż ponownie</button>
-      <button class="btn-ghost" onclick="showPage('ideologies')">Wszystkie ideologie</button>
+      <button class="btn-primary" onclick="showPage('home')" id="btn-r-home">Strona główna</button>
+      <button class="btn-ghost" onclick="startQuiz()" id="btn-r-retake">Rozwiąż ponownie</button>
+      <button class="btn-ghost" onclick="showPage('ideologies')" id="btn-r-ideologies">Wszystkie ideologie</button>
+      <button class="btn-ghost" onclick="showPage('history')" id="btn-r-history">Historia</button>
     </div>
     <div style="margin-bottom:1.5rem">
-      <div class="mono-tag" style="margin-bottom:.5rem">Udostępnij wyniki</div>
+      <div class="mono-tag" style="margin-bottom:.5rem" id="r-share-title">Udostępnij wyniki</div>
       <div class="share-url-box">
         <input class="share-url-input" id="share-url" readonly value="" onclick="this.select()">
         <button class="btn-copy" id="copy-btn" onclick="copyShareUrl()">Kopiuj link</button>
       </div>
     </div>
-    <div style="font-size:.8rem;color:var(--text3);line-height:1.5">
-      Pamiętaj, że celem nie jest uzyskanie 100% w każdej kategorii. Quiz ma na celu zbadanie Twoich poglądów.
+    <div style="font-size:.8rem;color:var(--text3);line-height:1.5" id="r-disclaimer">
+      Pamiętaj, że celem nie jest uzyskanie 100% w każdej kategorii.
     </div>
   </div>
 </div>
@@ -685,498 +169,90 @@ body::before{
 <!-- ===================== IDEOLOGIES PAGE ===================== -->
 <div class="page" id="page-ideologies">
   <div class="ideologies-container">
-    <h2>Wszystkie ideologie</h2>
-    <div class="ideologies-subtitle">Poznaj wartości każdej lewicowej ideologii według 7 osi.</div>
+    <h2 id="page-ideo-title">Wszystkie ideologie</h2>
+    <div class="ideologies-subtitle" id="page-ideo-subtitle">Poznaj wartości każdej lewicowej ideologii według 7 osi. Kliknij kartę, aby dowiedzieć się więcej.</div>
+    <div style="margin-bottom:1rem">
+      <input type="text" id="ideo-search" placeholder="Szukaj ideologii…" oninput="renderIdeologiesPage()" style="background:var(--bg2);border:1px solid var(--border2);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;padding:.6rem 1rem;border-radius:3px;width:100%;max-width:360px">
+    </div>
     <div class="ideo-filter" id="ideo-filter">
-      <button class="ideo-filter-btn active" onclick="filterIdeologies('all',this)">Wszystkie</button>
-      <button class="ideo-filter-btn" onclick="filterIdeologies('communist',this)">Komunistyczne</button>
-      <button class="ideo-filter-btn" onclick="filterIdeologies('socialist',this)">Socjalistyczne</button>
-      <button class="ideo-filter-btn" onclick="filterIdeologies('anarchist',this)">Anarchistyczne</button>
-      <button class="ideo-filter-btn" onclick="filterIdeologies('other',this)">Inne</button>
+      <button class="ideo-filter-btn active" onclick="filterIdeologies('all',this)" id="f-all">Wszystkie</button>
+      <button class="ideo-filter-btn" onclick="filterIdeologies('communist',this)" id="f-communist">Komunistyczne</button>
+      <button class="ideo-filter-btn" onclick="filterIdeologies('socialist',this)" id="f-socialist">Socjalistyczne</button>
+      <button class="ideo-filter-btn" onclick="filterIdeologies('anarchist',this)" id="f-anarchist">Anarchistyczne</button>
+      <button class="ideo-filter-btn" onclick="filterIdeologies('other',this)" id="f-other">Inne</button>
     </div>
     <div class="ideo-grid" id="ideo-grid"></div>
     <div style="margin-top:2rem">
-      <button class="btn-ghost" onclick="goHome()">← Wróć</button>
+      <button class="btn-ghost" onclick="goHome()">← <span id="btn-back-str">Wróć</span></button>
     </div>
   </div>
 </div>
 
-<!-- ===================== QUESTIONS DATA ===================== -->
-<script>
-const questions = {
-  // --- ORIGINAL 72 ---
-  question_0:{pl:"Pożądana jest reforma społeczeństwa kapitalistycznego w celu osiągnięcia lepszych praw dla pracowników.",a:-10,b:0,c:0,d:0,e:5,f:0,g:0},
-  question_1:{pl:"Rewolucja jest najlepszym sposobem na osiągnięcie społeczeństwa socjalistycznego.",a:10,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_2:{pl:"Negatywne konsekwencje rewolucji przeważają nad zaletami.",a:-10,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_3:{pl:"Liberalna demokracja jest realnym sposobem na osiągnięcie społeczeństwa socjalistycznego.",a:-10,b:0,c:5,d:0,e:10,f:0,g:0},
-  question_4:{pl:"Rewolucja socjalistyczna jest nieunikniona z powodu warunków kapitalizmu.",a:10,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_5:{pl:"Demokracja w miejscu pracy w kapitalizmie jest akceptowalną alternatywą dla całkowitej socjalizacji gospodarki.",a:-5,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_6:{pl:"Przemoc rewolucyjna jest dopuszczalna, o ile końcowy wynik jest pozytywny.",a:10,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_7:{pl:"Redystrybucja bogactwa z dala od bogatych przez podatki jest realnym sposobem na pokonanie nierówności.",a:-5,b:-5,c:5,d:0,e:10,f:0,g:0},
-  question_8:{pl:"Współczesna socjaldemokracja to zdrada wartości lewicowych.",a:5,b:5,c:0,d:0,e:0,f:0,g:0},
-  question_9:{pl:"Ludzie uciskani mają prawo do wzięcia udziału w gwałtownym powstaniu, gdy wszystkie inne opcje zostaną wyczerpane.",a:10,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_10:{pl:"Środki produkcji, takie jak fabryki i gospodarstwa rolne, muszą być własnością publiczną.",a:5,b:5,c:5,d:0,e:5,f:0,g:0},
-  question_11:{pl:"Materialne warunki i potrzeby są głównym motorem zmian społeczno-ekonomicznych.",a:0,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_12:{pl:"Socjalizm można w pełni osiągnąć tylko w rozwiniętych społeczeństwach uprzemysłowionych.",a:0,b:10,c:0,d:0,e:0,f:10,g:0},
-  question_13:{pl:"„Od każdego według jego zdolności, do każdego według jego potrzeb” jest dobrą zasadą.",a:5,b:0,c:0,d:5,e:0,f:0,g:5},
-  question_14:{pl:"Możliwe jest pokojowe przekonanie klasy rządzącej, by dostosowała się do społeczeństwa socjalistycznego.",a:-10,b:-5,c:0,d:0,e:0,f:0,g:0},
-  question_15:{pl:"Kapitalizm doprowadzi do własnej śmierci poprzez sprzeczności prowadzące do kryzysu.",a:0,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_16:{pl:"Konflikt klasowy jest siłą, która wpłynęła na znaczną część historii ludzkości.",a:0,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_17:{pl:"Scentralizowane planowanie gospodarcze jest najskuteczniejszym sposobem zarządzania zasobami.",a:0,b:0,c:10,d:0,e:0,f:0,g:0},
-  question_18:{pl:"Zdecentralizowane społeczności są lepszym modelem organizacji społeczeństwa socjalistycznego.",a:0,b:0,c:-10,d:0,e:0,f:0,g:0},
-  question_19:{pl:"Administracja lokalna i planowanie regionalne są ważniejsze niż scentralizowane planowanie krajowe.",a:0,b:0,c:-10,d:0,e:0,f:0,g:0},
-  question_20:{pl:"Planowanie gospodarcze powinno być realizowane przez rady robotnicze.",a:5,b:0,c:-10,d:0,e:-10,f:0,g:0},
-  question_21:{pl:"Rząd centralny jest konieczny do koordynacji ogólnokrajowych zasobów.",a:0,b:0,c:10,d:0,e:0,f:0,g:0},
-  question_22:{pl:"Administracyjne decyzje gospodarcze powinny być podejmowane na szczeblu krajowym lub wyższym.",a:0,b:0,c:10,d:0,e:0,f:0,g:0},
-  question_23:{pl:"Ruch socjalistyczny powinien dążyć do budowania solidarności międzynarodowej ponad granicami państw.",a:0,b:0,c:0,d:10,e:0,f:0,g:0},
-  question_24:{pl:"Nacjonalizm i socjalizm mogą iść w parze.",a:0,b:0,c:0,d:-10,e:0,f:0,g:0},
-  question_25:{pl:"Socjalizm w jednym kraju jest możliwy i pożądany.",a:0,b:0,c:0,d:-10,e:0,f:0,g:0},
-  question_26:{pl:"Internacjonalizm jest niezbędny do zwycięstwa socjalizmu.",a:0,b:0,c:0,d:10,e:0,f:0,g:0},
-  question_27:{pl:"Kwestia narodowa powinna być priorytetem dla lewicy.",a:0,b:0,c:0,d:-5,e:0,f:0,g:0},
-  question_28:{pl:"Partie polityczne są najważniejszym narzędziem walki politycznej.",a:0,b:0,c:0,d:0,e:10,f:0,f:0,g:0},
-  question_29:{pl:"Związki zawodowe są ważniejsze niż partie polityczne w walce o socjalizm.",a:0,b:0,c:0,d:0,e:-10,f:0,g:0},
-  question_30:{pl:"Ogólny strajk jest skutecznym narzędziem walki politycznej.",a:5,b:0,c:0,d:0,e:-5,f:0,g:0},
-  question_31:{pl:"Masowe organizacje społeczne mogą zastąpić partie polityczne jako podstawę ruchu.",a:0,b:0,c:0,d:0,e:-10,f:0,g:0},
-  question_32:{pl:"Wzrost gospodarczy powinien być priorytetem polityki socjalistycznej.",a:0,b:0,c:0,d:0,e:0,f:10,g:0},
-  question_33:{pl:"Ochrona środowiska naturalnego jest jednym z najważniejszych celów socjalizmu.",a:0,b:0,c:0,d:0,e:0,f:-10,g:0},
-  question_34:{pl:"Industrializacja jest kluczowa dla rozwoju społeczeństwa socjalistycznego.",a:0,b:5,c:0,d:0,e:0,f:10,g:0},
-  question_35:{pl:"Zmiany klimatyczne to pilny problem wymagający radykalnych zmian w produkcji.",a:0,b:0,c:0,d:0,e:0,f:-10,g:0},
-  question_36:{pl:"Gospodarka rolna i lokalna produkcja żywności powinny mieć pierwszeństwo przed przemysłem.",a:0,b:0,c:-5,d:0,e:0,f:-5,g:0},
-  question_37:{pl:"Kapitalizm z natury niszczy środowisko naturalne.",a:0,b:5,c:0,d:0,e:0,f:-10,g:0},
-  question_38:{pl:"Tradycyjne wartości kulturowe i rodzinne zasługują na ochronę.",a:0,b:0,c:0,d:0,e:0,f:0,g:-10},
-  question_39:{pl:"Prawa osób LGBTQ+ powinny być w pełni chronione przez prawo.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_40:{pl:"Religia powinna być sprawą całkowicie prywatną, oddzieloną od polityki.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_41:{pl:"Feminizm i socjalizm muszą iść razem.",a:0,b:0,c:0,d:5,e:0,f:0,g:10},
-  question_42:{pl:"Zróżnicowanie kulturowe i wielokulturowość są korzystne dla społeczeństwa.",a:0,b:0,c:0,d:5,e:0,f:0,g:10},
-  question_43:{pl:"Tradycyjna rodzina nuklearna jest najlepszą podstawą społeczeństwa.",a:0,b:0,c:0,d:0,e:0,f:0,g:-10},
-  question_44:{pl:"Postęp społeczny i kulturowy jest równie ważny jak postęp ekonomiczny.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_45:{pl:"Kolektywna własność środków produkcji prowadzi do lepszej alokacji zasobów niż rynek.",a:5,b:5,c:0,d:0,e:0,f:0,g:0},
-  question_46:{pl:"Anarchiści mają rację odrzucając wszelkie formy władzy państwowej.",a:5,b:0,c:-10,d:5,e:-10,f:0,g:0},
-  question_47:{pl:"Awangarda partii rewolucyjnej jest niezbędna do przeprowadzenia rewolucji.",a:10,b:5,c:5,d:0,e:10,f:0,g:0},
-  question_48:{pl:"Vanguardyzm jest formą elityzmu sprzeczną z zasadami socjalizmu.",a:0,b:0,c:-5,d:0,e:-10,f:0,g:0},
-  question_49:{pl:"Ruch robotniczy powinien dążyć do reformy, a nie do obalenia kapitalizmu.",a:-10,b:0,c:0,d:0,e:5,f:0,g:0},
-  question_50:{pl:"Organizacje pozarządowe mogą skutecznie zastępować działania państwa socjalnego.",a:-5,b:-5,c:-5,d:0,e:-5,f:0,g:0},
-  question_51:{pl:"Publiczna służba zdrowia powinna być powszechnie dostępna i bezpłatna.",a:5,b:0,c:5,d:0,e:5,f:0,g:5},
-  question_52:{pl:"Edukacja powinna być publiczna, bezpłatna i dostępna dla wszystkich.",a:5,b:0,c:5,d:0,e:5,f:0,g:5},
-  question_53:{pl:"Kapitał finansowy i spekulacja powinny być poddane ścisłej regulacji lub zakazane.",a:5,b:5,c:5,d:0,e:0,f:0,g:0},
-  question_54:{pl:"Praca jest źródłem wszelkiej wartości ekonomicznej.",a:0,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_55:{pl:"Wyzwolenie narodów kolonialnych jest częścią walki o socjalizm.",a:5,b:0,c:0,d:5,e:0,f:0,g:5},
-  question_56:{pl:"Walka zbrojna jest dopuszczalna jako środek oporu przeciwko uciskowi.",a:10,b:0,c:0,d:0,e:0,f:0,g:0},
-  question_57:{pl:"Technologia i automatyzacja mogą wyzwolić pracowników od alienacji.",a:0,b:5,c:0,d:0,e:0,f:5,g:5},
-  question_58:{pl:"Powszechny dochód podstawowy jest dobrym środkiem walki z nierównościami.",a:-5,b:-5,c:0,d:0,e:5,f:0,g:5},
-  question_59:{pl:"Biurokracja jest nieodłącznym problemem scentralizowanych systemów planowania.",a:0,b:0,c:-5,d:0,e:-5,f:0,g:0},
-  question_60:{pl:"Demokracja bezpośrednia jest lepsza niż demokracja przedstawicielska.",a:5,b:0,c:-10,d:0,e:-5,f:0,g:0},
-  question_61:{pl:"Migracja i swobodny przepływ ludzi powinna być gwarantowana.",a:0,b:0,c:0,d:10,e:0,f:0,g:5},
-  question_62:{pl:"Globalizacja w obecnej formie przynosi korzyści przede wszystkim klasie rządzącej.",a:0,b:5,c:0,d:0,e:0,f:0,g:0},
-  question_63:{pl:"Ruch ekologiczny i ruch robotniczy muszą się połączyć.",a:5,b:0,c:0,d:5,e:-5,f:-10,g:5},
-  question_64:{pl:"Zrównoważony rozwój jest niemożliwy w systemie kapitalistycznym.",a:5,b:5,c:0,d:0,e:0,f:-10,g:0},
-  question_65:{pl:"Partycypacja robotnicza w zarządzaniu przedsiębiorstwem powinna być obowiązkowa.",a:5,b:0,c:0,d:0,e:-5,f:0,g:0},
-  question_66:{pl:"Reforma rolna i redystrybucja ziemi są kluczowym elementem rewolucji socjalistycznej.",a:5,b:5,c:5,d:0,e:0,f:0,g:0},
-  question_67:{pl:"Walka z patriarchatem jest nieodłączną częścią walki klasowej.",a:0,b:5,c:0,d:0,e:0,f:0,g:10},
-  question_68:{pl:"Ruch robotniczy powinien być otwarty na sojusze z innymi ruchami społecznymi.",a:0,b:0,c:0,d:5,e:-5,f:0,g:5},
-  question_69:{pl:"NATO i sojusze militarne zachodu służą interesom kapitału.",a:5,b:5,c:0,d:0,e:0,f:0,g:0},
-  question_70:{pl:"Media powinny być własnością publiczną lub kontrolowane przez społeczności.",a:0,b:0,c:5,d:0,e:0,f:0,g:5},
-  question_71:{pl:"Nie można osiągnąć społeczeństwa socjalistycznego bez znacznego postępu społecznego.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
+<!-- ===================== IDEOLOGY DETAIL PAGE ===================== -->
+<div class="page" id="page-ideo-detail">
+  <div class="ideo-detail-container">
+    <div class="ideo-detail-tag" id="dd-tag"></div>
+    <div class="ideo-detail-name" id="dd-name"></div>
+    <div class="ideo-detail-section">
+      <h3 id="dd-overview-title">Przegląd</h3>
+      <p id="dd-desc"></p>
+    </div>
+    <div class="ideo-detail-axes" id="dd-axes"></div>
+    <div class="ideo-detail-section">
+      <h3 id="dd-figures-title">Kluczowe postacie</h3>
+      <div class="ideo-figures" id="dd-figures"></div>
+    </div>
+    <div class="ideo-detail-section">
+      <h3 id="dd-works-title">Kluczowe teksty</h3>
+      <div class="ideo-works" id="dd-works"></div>
+    </div>
+    <div class="ideo-detail-section">
+      <h3 id="dd-movements-title">Przykładowe ruchy / partie</h3>
+      <div class="ideo-movements" id="dd-movements"></div>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+      <button class="btn-ghost" onclick="showPage('ideologies')">← <span id="dd-back">Wróć</span></button>
+      <button class="btn-ghost" id="dd-quiz-btn" onclick="showPage('instructions')" style="display:none"></button>
+    </div>
+  </div>
+</div>
 
-  // --- NOWE PYTANIA (+40) ---
-  // Rewolucja / reforma
-  question_72:{pl:"Partie komunistyczne powinny uczestniczyć w wyborach jedynie jako taktyka, a nie cel sam w sobie.",a:8,b:5,c:0,d:0,e:5,f:0,g:0},
-  question_73:{pl:"Bojkot wyborów jest uzasadnioną strategią lewicową.",a:8,b:0,c:0,d:0,e:-5,f:0,g:0},
-  question_74:{pl:"Stopniowe reformy są skuteczniejszą drogą do sprawiedliwości społecznej niż gwałtowne obalenie systemu.",a:-10,b:-5,c:0,d:0,e:5,f:0,g:0},
-  question_75:{pl:"Stan wyjątkowy i dyktatura proletariatu są historycznie koniecznymi etapami przejścia do komunizmu.",a:10,b:10,c:10,d:0,e:10,f:0,g:0},
+<!-- ===================== AXIS DETAIL PAGE ===================== -->
+<div class="page" id="page-axis-detail">
+  <div class="axis-detail-container">
+    <div class="axis-detail-name" id="ad-name"></div>
+    <div class="axis-detail-subtitle" id="ad-subtitle"></div>
+    <div class="axis-detail-poles" id="ad-poles"></div>
+    <div class="axis-detail-section">
+      <h3 id="ad-context-title">Kontekst historyczny</h3>
+      <p id="ad-context"></p>
+    </div>
+    <div class="axis-detail-section">
+      <h3 id="ad-debate-title">Główne debaty</h3>
+      <p id="ad-debate"></p>
+    </div>
+    <div style="margin-top:2rem">
+      <button class="btn-ghost" id="ad-back-btn" onclick="history_back_to_results ? showPage('results') : goHome()">← Wróć</button>
+    </div>
+  </div>
+</div>
 
-  // Nauka / utopia
-  question_76:{pl:"Materializm dialektyczny jest najlepszym narzędziem analizy rzeczywistości społecznej.",a:0,b:10,c:0,d:0,e:0,f:0,g:0},
-  question_77:{pl:"Socjalizm naukowy Marksa i Engelsa jest wciąż aktualną podstawą myśli lewicowej.",a:5,b:10,c:0,d:5,e:0,f:0,g:0},
-  question_78:{pl:"Wizje utopijnych społeczności mogą być inspiracją dla lewicy, nawet jeśli są nierealistyczne.",a:-5,b:-10,c:0,d:0,e:0,f:0,g:5},
-  question_79:{pl:"Nauka i postęp technologiczny są sojusznikami emancypacji ludzkości.",a:0,b:5,c:0,d:0,e:0,f:5,g:5},
+<!-- ===================== HISTORY PAGE ===================== -->
+<div class="page" id="page-history">
+  <div class="history-container">
+    <h2 id="hist-title">Historia wyników</h2>
+    <div class="history-subtitle" id="hist-subtitle">Twoje poprzednie podejścia do quizu, zapisane lokalnie.</div>
+    <div id="history-list-wrap"></div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem">
+      <button class="btn-ghost" onclick="goHome()">← <span id="hist-back">Wróć</span></button>
+      <button class="btn-ghost btn-sm" id="hist-clear-btn" onclick="clearHistory()" style="color:var(--red3);border-color:var(--red)"></button>
+    </div>
+  </div>
+</div>
 
-  // Centralizm / decentralizm
-  question_80:{pl:"Silne państwo jest niezbędne do ochrony zdobyczy rewolucji.",a:5,b:0,c:10,d:0,e:5,f:0,g:0},
-  question_81:{pl:"Federalizm jest lepszym rozwiązaniem niż unitarne państwo centralne.",a:0,b:0,c:-8,d:0,e:0,f:0,g:0},
-  question_82:{pl:"Spółdzielnie pracownicze są lepszym modelem niż zarówno własność państwowa, jak i prywatna.",a:0,b:0,c:-5,d:0,e:-5,f:0,g:0},
-  question_83:{pl:"Internet i technologie cyfrowe powinny być zarządzane przez zdecentralizowane struktury społeczne.",a:0,b:0,c:-8,d:0,e:0,f:0,g:5},
-
-  // Internacjonalizm / nacjonalizm
-  question_84:{pl:"Socjaliści powinni popierać ruchy wyzwolenia narodowego w krajach globalnego Południa.",a:5,b:0,c:0,d:5,e:0,f:0,g:5},
-  question_85:{pl:"Granice państwowe są narzędziem kapitalistycznej kontroli i powinny zostać zniesione.",a:5,b:0,c:-5,d:10,e:-5,f:0,g:5},
-  question_86:{pl:"Lewicowi patrioci mogą bronić interesów narodu bez ksenofobii.",a:0,b:0,c:0,d:-8,e:0,f:0,g:-5},
-  question_87:{pl:"Europejska integracja jest projektem kapitalistycznym, a nie lewicowym.",a:0,b:5,c:0,d:-5,e:0,f:0,g:0},
-
-  // Partyjnizm / unionizm
-  question_88:{pl:"Syndykalizm — zarządzanie gospodarką przez związki zawodowe — jest atrakcyjną alternatywą.",a:5,b:0,c:-5,d:0,e:-10,f:0,g:0},
-  question_89:{pl:"Lewica powinna budować szerokie fronty ludowe zamiast wąskich partii.",a:0,b:0,c:0,d:5,e:-5,f:0,g:0},
-  question_90:{pl:"Dyscyplina partyjna jest konieczna do skutecznej walki politycznej.",a:0,b:0,c:5,d:0,e:10,f:0,g:0},
-  question_91:{pl:"Ruchy społeczne (feministyczne, ekologiczne, LGBTQ+) powinny mieć autonomię od partii lewicowych.",a:0,b:0,c:-5,d:5,e:-8,f:0,g:10},
-
-  // Produktywizm / ekologizm
-  question_92:{pl:"Degrowth — celowe zmniejszenie produkcji — jest konieczne dla ratowania planety.",a:0,b:-5,c:0,d:0,e:0,f:-10,g:5},
-  question_93:{pl:"Energia jądrowa może być elementem socjalistycznej zielonej transformacji.",a:0,b:5,c:0,d:0,e:0,f:5,g:0},
-  question_94:{pl:"Prawa zwierząt powinny być integralną częścią lewicowego programu.",a:0,b:0,c:0,d:0,e:0,f:-5,g:10},
-  question_95:{pl:"Eksploatacja zasobów naturalnych globalnego Południa przez kraje bogatego Północy jest formą imperializmu ekologicznego.",a:5,b:5,c:0,d:8,e:0,f:-8,g:5},
-
-  // Konserwatyzm / progresywizm
-  question_96:{pl:"Legalizacja narkotyków miękkich jest krokiem w stronę sprawiedliwości społecznej.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_97:{pl:"System więziennictwa powinien zostać fundamentalnie przebudowany lub zniesiony.",a:5,b:0,c:-5,d:0,e:-5,f:0,g:10},
-  question_98:{pl:"Pornografia jest przejawem kapitalistycznej eksploatacji i powinna być ograniczana.",a:0,b:0,c:5,d:0,e:0,f:0,g:-8},
-  question_99:{pl:"Prawa reprodukcyjne, w tym dostęp do aborcji, są prawami człowieka.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_100:{pl:"Rola religii w społeczeństwie powinna być stopniowo ograniczana przez lewicowe rządy.",a:0,b:5,c:5,d:0,e:0,f:0,g:8},
-  question_101:{pl:"Ruchy tubylcze i ochrona rdzennych kultur są częścią lewicowej agendy.",a:0,b:0,c:-5,d:5,e:0,f:-5,g:5},
-
-  // Dodatkowe kompleksowe
-  question_102:{pl:"Policja w obecnej formie jest instrumentem ucisku klasowego i rasowego.",a:5,b:5,c:-5,d:0,e:-5,f:0,g:8},
-  question_103:{pl:"Bezwarunkowe mieszkanie dla wszystkich powinno być gwarantowane przez państwo.",a:5,b:0,c:5,d:0,e:5,f:0,g:8},
-  question_104:{pl:"Praca zdalna i skrócenie tygodnia pracy to postępowe zdobycze pracownicze.",a:0,b:0,c:0,d:0,e:0,f:-5,g:8},
-  question_105:{pl:"Edukacja seksualna w szkołach powinna być kompleksowa i świecka.",a:0,b:0,c:0,d:0,e:0,f:0,g:10},
-  question_106:{pl:"Długi krajów globalnego Południa wobec MFW i Banku Światowego powinny zostać anulowane.",a:5,b:5,c:0,d:10,e:0,f:0,g:5},
-  question_107:{pl:"Prywatne banki powinny zostać znacjonalizowane.",a:5,b:5,c:8,d:0,e:0,f:0,g:0},
-  question_108:{pl:"Pracodawcy powinni być zobowiązani do przekazania pracownikom akcji firmy.",a:0,b:0,c:5,d:0,e:-5,f:0,g:0},
-  question_109:{pl:"Sztuczna inteligencja powinna być własnością publiczną, a nie korporacyjną.",a:5,b:0,c:5,d:0,e:0,f:0,g:5},
-  question_110:{pl:"Kapitalizm i demokracja są ze sobą strukturalnie sprzeczne.",a:8,b:8,c:0,d:0,e:0,f:0,g:0},
-  question_111:{pl:"Lewica powinna otwarcie mówić o komunizmie jako ostatecznym celu, nie tylko o socjalizmie.",a:10,b:5,c:0,d:5,e:5,f:0,g:0},
-};
-
-const ideologies = {
-  'Marxism-Leninism':{name:'Marksizm-Leninizm',tag:'communist',desc:'Forma marksizmu wykuta w XX wieku w Związku Radzieckim. Marksiści-Leniniści mocno popierają komunistyczną partię polityczną jako platformę do osiągnięcia rewolucji i ustanowienia socjalizmu.',a:80,b:80,c:80,d:60,e:90,f:70,g:40},
-  'Orthodox-Marxism':{name:'Marksizm Ortodoksyjny',tag:'communist',desc:'Przyjmuje marksistowską teorię w pierwotnej formie, szczególnie materializm dialektyczny. Wysoce rewolucyjny i internacjonalistyczny.',a:80,b:80,c:60,d:80,e:70,f:50,g:30},
-  'Eco-Marxism':{name:'Eko-Marksizm',tag:'communist',desc:'Forma Ortodoksyjnego Marksizmu kładąca szczególny nacisk na kwestie środowiskowe. Preferuje centralne planowanie jako narzędzie walki z problemami klimatycznymi.',a:80,b:80,c:60,d:80,e:70,f:20,g:30},
-  'Centrist-Marxism':{name:'Marksizm Centrystyczny',tag:'communist',desc:'Przyjmuje marksistowskie poglądy na społeczeństwo, jednocześnie powstrzymując się od zajęcia ostatecznego stanowiska w sprawie rewolucji i reformizmu.',a:50,b:80,c:60,d:60,e:70,f:50,g:30},
-  'Council-Communism':{name:'Komunizm Rad Pracowniczych',tag:'communist',desc:'Odrzuca udział w liberalnej demokracji, popiera spontaniczne rewolucje i rady robotnicze zamiast partii politycznych.',a:100,b:70,c:40,d:80,e:50,f:50,g:30},
-  'Left-Communism':{name:'Lewicowy Komunizm',tag:'communist',desc:'Skłania się w kierunku ultralewicowych pozycji: bezwarunkowe poparcie dla rewolucji, odrzucenie związków i uczestnictwa w liberalnej demokracji.',a:90,b:60,c:50,d:90,e:80,f:50,g:30},
-  'Maoism':{name:'Maoizm',tag:'communist',desc:'Forma marksizmu-leninizmu rozwinięta przez Mao Zedonga. Kładzie nacisk na rolę chłopstwa, wojnę partyzancką oraz krytykę rewizjonizmu. Popiera trzeci-świat jako awangardę rewolucji.',a:90,b:70,c:80,d:70,e:90,f:60,g:20},
-  'Titoism':{name:'Titoizm',tag:'communist',desc:'Jugosłowiańska forma socjalizmu zakładająca niezależność od ZSRR, samorząd robotniczy i politykę niezaangażowania. Centralistyczna, lecz bardziej otwarta niż stalinizm.',a:70,b:70,c:65,d:55,e:80,f:60,g:35},
-  'Trotskyism':{name:'Trockizm',tag:'communist',desc:'Forma marksizmu-leninizmu oparta na teorii permanentnej rewolucji i internacjonalizmu. Odrzuca stalinizm jako zdradę rewolucji, popiera demokratyczny centralizm.',a:85,b:80,c:60,d:90,e:80,f:50,g:30},
-  'Anarcho-Communism':{name:'Anarcho-Komunizm',tag:'anarchist',desc:'Opowiada się za zniesieniem kapitalizmu i państwa, zbiorową własnością środków produkcji i zdecentralizowaną gospodarką.',a:80,b:50,c:20,d:80,e:10,f:50,g:30},
-  'Eco-Anarchism':{name:'Eko-Anarchizm',tag:'anarchist',desc:'Forma anarchizmu kładąca szczególny nacisk na kwestie środowiskowe, wspierająca zdecentralizowaną egalitarną gospodarkę.',a:80,b:50,c:20,d:80,e:10,f:20,g:30},
-  'Market-Anarchism':{name:'Anarchizm Rynkowy',tag:'anarchist',desc:'Łączy cele anarchistyczne z indywidualizmem i umiarkowanym podejściem. Nie należy mylić z anarcho-kapitalizmem.',a:20,b:40,c:30,d:70,e:10,f:60,g:30},
-  'Syndicalism':{name:'Syndykalizm',tag:'anarchist',desc:'Ruch zakładający, że związki zawodowe powinny być podstawową jednostką organizacji politycznej i gospodarczej. Odrzuca partie polityczne na rzecz bezpośredniej akcji robotniczej.',a:70,b:40,c:35,d:60,e:10,f:50,g:35},
-  'Libertarian-Socialism':{name:'Libertariański Socjalizm',tag:'anarchist',desc:'Łączy socjalistyczne cele ekonomiczne z maksymalizacją wolności indywidualnej. Odrzuca zarówno kapitalizm, jak i autorytaryzm państwowy.',a:50,b:40,c:20,d:70,e:20,f:40,g:40},
-  'Utopian-Socialism':{name:'Utopijny Socjalizm',tag:'socialist',desc:'Przed-marksistowski socjalizm wierzący w egalitarne, moralistyczne podejście. Na ogół odrzuca gwałtowną rewolucję.',a:10,b:10,c:40,d:20,e:50,f:40,g:50},
-  'Democratic-Socialism':{name:'Demokratyczny Socjalizm',tag:'socialist',desc:'Dąży do wykorzystania liberalnej demokracji do osiągnięcia socjalistycznej gospodarki. Odrzuca rewolucję i gospodarkę centralnie planowaną.',a:20,b:30,c:30,d:70,e:60,f:30,g:20},
-  'Social-Democracy':{name:'Socjaldemokracja',tag:'socialist',desc:'Centrolewicowa ideologia łącząca wartości socjalne z kapitalizmem i liberalną demokracją w formie gospodarki mieszanej.',a:10,b:30,c:50,d:40,e:80,f:50,g:30},
-  'Green-Socialism':{name:'Zielony Socjalizm',tag:'socialist',desc:'Łączy tradycyjną lewicową ekonomię ze zdecydowaną agendą ekologiczną. Postuluje degrowth i transformację energetyczną jako priorytety socjalistyczne.',a:30,b:40,c:40,d:60,e:50,f:15,g:25},
-  'Left-Wing-Nationalism':{name:'Lewicowy Nacjonalizm',tag:'other',desc:'Łączy lewicową ekonomię z nieksenofobicznym nacjonalizmem i patriotyzmem. Wielu lewicowych nacjonalistów popiera jednocześnie międzynarodową solidarność.',a:60,b:60,c:60,d:30,e:70,f:40,g:30},
-  'Islamic-Socialism':{name:'Socjalizm Islamski',tag:'other',desc:'Nurt łączący zasady islamu z socjalistyczną ekonomią. Kładzie nacisk na sprawiedliwość społeczną i egalitaryzm wynikający z interpretacji Koranu.',a:30,b:20,c:50,d:40,e:50,f:40,g:-20},
-};
-</script>
-
-<!-- ===================== QUIZ LOGIC ===================== -->
-<script>
-// theme
-function toggleTheme(){
-  const html=document.documentElement;
-  const isDark=html.getAttribute('data-theme')==='dark';
-  const next=isDark?'light':'dark';
-  html.setAttribute('data-theme',next);
-  document.getElementById('theme-toggle').textContent=isDark?'☾':'☀';
-  try{localStorage.setItem('lv-theme',next)}catch(e){}
-}
-try{
-  const saved=localStorage.getItem('lv-theme');
-  if(saved){
-    document.documentElement.setAttribute('data-theme',saved);
-    document.getElementById('theme-toggle').textContent=saved==='light'?'☾':'☀';
-  }
-}catch(e){}
-
-const TOTAL_Q=Object.keys(questions).length;
-document.getElementById('q-count').textContent=TOTAL_Q;
-document.getElementById('q-count2').textContent=TOTAL_Q;
-
-let scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
-let maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
-let qOrder=[];
-let qi=0;
-let history=[];
-let currentPcts={};
-
-function shuffle(arr){
-  for(let i=arr.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
-  }
-  return arr;
-}
-
-function calcMax(){
-  maxScores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
-  Object.keys(questions).forEach(k=>{
-    const q=questions[k];
-    ['a','b','c','d','e','f','g'].forEach(ax=>{
-      maxScores[ax]+=Math.abs(q[ax]||0);
-    });
-  });
-}
-
-function calcPct(score,max){
-  if(max===0)return 50;
-  return parseFloat((100*(max+score)/(2*max)).toFixed(1));
-}
-
-function startQuiz(){
-  scores={a:0,b:0,c:0,d:0,e:0,f:0,g:0};
-  history=[];qi=0;
-  qOrder=shuffle(Object.keys(questions).map((_,i)=>i));
-  calcMax();
-  showPage('quiz');
-  renderQuestion();
-}
-
-function renderQuestion(){
-  const qKey='question_'+qOrder[qi];
-  const q=questions[qKey];
-  const el=document.getElementById('q-text');
-
-  // animate out → in
-  el.classList.remove('slide-in');
-  el.classList.add('slide-out');
-  setTimeout(()=>{
-    el.textContent=q.pl||qKey;
-    el.classList.remove('slide-out');
-    el.classList.add('slide-in');
-  },160);
-
-  document.getElementById('q-number').textContent=`Pytanie ${qi+1} z ${TOTAL_Q}`;
-  document.getElementById('progress-fill').style.width=`${(qi/TOTAL_Q)*100}%`;
-  document.getElementById('btn-back').disabled=(qi===0);
-
-  const axes=['a','b','c','d','e','f','g'];
-  const axNames=['Rewolucja','Nauka','Centralizm','Internacjonalizm','Partyjnizm','Produktywizm','Konserwatyzm'];
-  const dominant=axes.reduce((a,b)=>Math.abs(q[b]||0)>Math.abs(q[a]||0)?b:a,'a');
-  const domIdx=axes.indexOf(dominant);
-  document.getElementById('q-axis-label').textContent=Math.abs(q[dominant]||0)>0?`Oś: ${axNames[domIdx]}`:'';
-  document.getElementById('header-status').textContent=`${qi+1}/${TOTAL_Q}`;
-}
-
-function answer(mult){
-  // pulse animation on answers div
-  const ans=document.getElementById('answers');
-  ans.classList.remove('answer-pulse');
-  void ans.offsetWidth;
-  ans.classList.add('answer-pulse');
-
-  const qKey='question_'+qOrder[qi];
-  const q=questions[qKey];
-  ['a','b','c','d','e','f','g'].forEach(ax=>{
-    scores[ax]+=mult*(q[ax]||0);
-  });
-  history.push({qi,mult,qKey});
-  qi++;
-  if(qi>=TOTAL_Q){showResults();return;}
-  renderQuestion();
-}
-
-function prevQ(){
-  if(history.length===0)return;
-  const last=history.pop();
-  qi=last.qi;
-  const q=questions[last.qKey];
-  ['a','b','c','d','e','f','g'].forEach(ax=>{
-    scores[ax]-=last.mult*(q[ax]||0);
-  });
-  renderQuestion();
-}
-
-function showPage(p){
-  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  window.scrollTo(0,0);
-  if(p==='home')document.getElementById('header-status').textContent='';
-  if(p==='ideologies')renderIdeologiesPage();
-}
-function goHome(){showPage('home')}
-
-// ========== AXES DATA ==========
-const axisData=[
-  {key:'a',left:'Rewolucja',right:'Reforma',lc:'#c0392b',rc:'#e74c3c'},
-  {key:'b',left:'Nauka',right:'Utopia',lc:'#8e44ad',rc:'#6c3483'},
-  {key:'c',left:'Centralizm',right:'Decentralizm',lc:'#922b21',rc:'#555'},
-  {key:'d',left:'Internacjonalizm',right:'Nacjonalizm',lc:'#6e2f7c',rc:'#6e3a1e'},
-  {key:'e',left:'Partyjnizm',right:'Unionizm',lc:'#943126',rc:'#7b3c44'},
-  {key:'f',left:'Produktywizm',right:'Ekologizm',lc:'#784212',rc:'#1e8449'},
-  {key:'g',left:'Konserwatyzm',right:'Progresywizm',lc:'#1a5276',rc:'#9a7d0a'}
-];
-
-// ========== RESULTS ==========
-function showResults(){
-  showPage('results');
-  document.getElementById('header-status').textContent='Wyniki';
-
-  const pcts={};
-  ['a','b','c','d','e','f','g'].forEach(k=>{
-    pcts[k]=calcPct(scores[k],maxScores[k]);
-  });
-  currentPcts=pcts;
-
-  // render axes
-  const axesEl=document.getElementById('axes-display');
-  axesEl.innerHTML='';
-  axisData.forEach(ax=>{
-    const pct=pcts[ax.key];
-    const row=document.createElement('div');
-    row.className='axis-row';
-    row.id='axis-row-'+ax.key;
-    row.innerHTML=`
-      <div class="axis-label-row">
-        <span class="axis-label" style="color:${ax.lc}">${ax.left} <span style="color:var(--text3);font-size:.7rem">${pct.toFixed(0)}%</span></span>
-        <span class="axis-label" style="color:${ax.rc}">${ax.right} <span style="color:var(--text3);font-size:.7rem">${(100-pct).toFixed(0)}%</span></span>
-      </div>
-      <div class="axis-bar-track">
-        <div class="axis-left-fill" id="bar-${ax.key}" style="width:0%;background:${ax.lc};opacity:.85">
-          ${pct>20?`<span class="axis-pct">${pct.toFixed(0)}%</span>`:''}
-        </div>
-        <div class="axis-compare-marker" id="marker-${ax.key}" style="left:50%;display:none"></div>
-      </div>`;
-    axesEl.appendChild(row);
-  });
-  setTimeout(()=>{
-    axisData.forEach(ax=>{
-      const bar=document.getElementById('bar-'+ax.key);
-      if(bar)bar.style.width=pcts[ax.key]+'%';
-    });
-  },80);
-
-  // find closest ideology
-  const dists=[];
-  Object.keys(ideologies).forEach(name=>{
-    const id=ideologies[name];
-    let dist=0;
-    ['a','b','c','d','e','f','g'].forEach(k=>{dist+=Math.pow(id[k]-pcts[k],2);});
-    dists.push({name,dist});
-  });
-  dists.sort((a,b)=>a.dist-b.dist);
-  const closest=dists[0];
-  const farthest=dists[dists.length-1];
-  const span=farthest.dist-closest.dist;
-
-  document.getElementById('r-ideology').textContent=ideologies[closest.name].name;
-  document.getElementById('r-desc').textContent=ideologies[closest.name].desc;
-
-  // populate compare select
-  const sel=document.getElementById('compare-select');
-  sel.innerHTML='<option value="">— wybierz ideologię —</option>';
-  dists.forEach(d=>{
-    const opt=document.createElement('option');
-    opt.value=d.name;
-    opt.textContent=ideologies[d.name].name;
-    sel.appendChild(opt);
-  });
-
-  // next matches list
-  const listEl=document.getElementById('ideology-list');
-  listEl.innerHTML='';
-  dists.slice(1,9).forEach(d=>{
-    const rel=span>0?Math.round(1000*(1-(d.dist-closest.dist)/span))/10:50;
-    const item=document.createElement('div');
-    item.className='ideology-item';
-    item.innerHTML=`
-      <div class="ideology-item-name">${ideologies[d.name].name}</div>
-      <div class="ideology-item-bar"><div class="ideology-item-fill" style="width:0%" data-w="${rel}"></div></div>
-      <div class="ideology-item-pct">${rel.toFixed(1)}%</div>`;
-    listEl.appendChild(item);
-  });
-  setTimeout(()=>{
-    document.querySelectorAll('.ideology-item-fill').forEach(el=>{
-      el.style.width=el.dataset.w+'%';
-    });
-  },100);
-
-  // share URL
-  generateShareUrl();
-}
-
-// ========== COMPARE ==========
-function renderCompare(){
-  const sel=document.getElementById('compare-select').value;
-  axisData.forEach(ax=>{
-    const marker=document.getElementById('marker-'+ax.key);
-    if(!marker)return;
-    if(!sel){marker.style.display='none';return;}
-    const ideo=ideologies[sel];
-    const pct=ideo[ax.key];
-    marker.style.display='block';
-    marker.style.left=pct+'%';
-  });
-}
-
-// ========== SHARE ==========
-function generateShareUrl(){
-  const axes=['a','b','c','d','e','f','g'];
-  const encoded=axes.map(k=>Math.round(currentPcts[k]||50)).join('-');
-  const url=window.location.href.split('#')[0]+'#r='+encoded;
-  document.getElementById('share-url').value=url;
-}
-
-function copyShareUrl(){
-  const input=document.getElementById('share-url');
-  input.select();
-  try{document.execCommand('copy');}catch(e){navigator.clipboard.writeText(input.value).catch(()=>{})}
-  const btn=document.getElementById('copy-btn');
-  btn.textContent='Skopiowano!';
-  btn.classList.add('copied');
-  setTimeout(()=>{btn.textContent='Kopiuj link';btn.classList.remove('copied');},2000);
-}
-
-// load shared results from hash
-function loadSharedResults(){
-  const hash=window.location.hash;
-  if(!hash.startsWith('#r='))return;
-  const parts=hash.slice(3).split('-').map(Number);
-  if(parts.length!==7)return;
-  const axes=['a','b','c','d','e','f','g'];
-  axes.forEach((k,i)=>{currentPcts[k]=parts[i]||50;});
-  // fake scores & maxScores so showResults works
-  calcMax();
-  axes.forEach(k=>{
-    scores[k]=((currentPcts[k]/100)*2-1)*maxScores[k];
-  });
-  showResults();
-}
-
-// ========== IDEOLOGIES PAGE ==========
-let currentFilter='all';
-function renderIdeologiesPage(){
-  const grid=document.getElementById('ideo-grid');
-  grid.innerHTML='';
-  Object.keys(ideologies).forEach(key=>{
-    const id=ideologies[key];
-    if(currentFilter!=='all' && id.tag!==currentFilter)return;
-    const card=document.createElement('div');
-    card.className='ideo-card';
-    const miniAxes=axisData.map(ax=>{
-      const pct=id[ax.key];
-      const color=pct>50?ax.lc:ax.rc;
-      const w=pct>50?pct:(100-pct);
-      return `<div class="ideo-mini-row">
-        <div class="ideo-mini-label">${ax.left.substring(0,7)}</div>
-        <div class="ideo-mini-bar"><div class="ideo-mini-fill" style="width:${w}%;background:${color}"></div></div>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text3);margin-left:.3rem">${pct}%</span>
-      </div>`;
-    }).join('');
-    card.innerHTML=`
-      <div class="ideo-card-name">${id.name}</div>
-      <div class="ideo-card-tag">${tagLabel(id.tag)}</div>
-      <div class="ideo-card-desc">${id.desc}</div>
-      <div class="ideo-mini-axes">${miniAxes}</div>`;
-    grid.appendChild(card);
-  });
-}
-
-function tagLabel(t){
-  return {communist:'Komunistyczna',socialist:'Socjalistyczna',anarchist:'Anarchistyczna',other:'Inne'}[t]||t;
-}
-
-function filterIdeologies(filter,btn){
-  currentFilter=filter;
-  document.querySelectorAll('.ideo-filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderIdeologiesPage();
-}
-
-// init
-window.addEventListener('load',()=>{
-  loadSharedResults();
-});
-</script>
+<!-- Scripts -->
+<script src="data.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
