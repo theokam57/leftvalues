@@ -46,7 +46,7 @@ Quiz mierzy poglądy na ośmiu kluczowych płaszczyznach:
 
 * `index.html` – Główny szkielet aplikacji i kontenery dla widoków (Home, Quiz, Results, Ideologies).
 * `style.css` – Kompletny arkusz stylów (obsługa Dark/Light mode, Accessibility mode).
-* `data.js` – Baza 129 pytań, definicje 20 ideologii oraz dane historyczne osi.
+* `data.js` – Baza 130 pytań, definicje 20 ideologii oraz dane historyczne osi.
 * `app.js` – Główny silnik: scoring, routing, generowanie wykresów (Radar, Compass).
 * `i18n.js` – System wielojęzyczności (PL, EN, DE, RU) i dynamicznego podmieniania treści.
 * `sw.js` – Service Worker umożliwiający działanie w trybie offline i caching zasobów.
