@@ -457,7 +457,7 @@ function loadSharedResults(){
   const hash=window.location.hash;
   if(!hash.startsWith('#r='))return;
   const parts=hash.slice(3).split('-').map(Number);
-  if(parts.length!==7)return;
+  if(parts.length!==8)return;
   const axes=['a','b','c','d','e','f','g','h'];
   axes.forEach((k,i)=>{currentPcts[k]=parts[i]||50;});
   calcMax();
