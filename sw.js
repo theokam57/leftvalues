@@ -1,5 +1,5 @@
 // LeftValues Service Worker — v2.0
-const CACHE_NAME = 'leftvalues-v2.1';
+const CACHE_NAME = 'leftvalues-v2.2';
 const ASSETS = [
   './',
   './index.html',
