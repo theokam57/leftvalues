@@ -43,7 +43,7 @@ const t = {
     export_png: 'Eksportuj PNG', exporting: 'Generowanie…',
     onb_skip: 'Pomiń', onb_next: 'Dalej →', onb_start: 'Zaczynamy!',
     onb_1_title: 'Witaj w LeftValues', onb_1_body: 'Ten quiz pomoże Ci odkryć, gdzie na mapie lewicy się znajdujesz. Odpowiedz na pytania i sprawdź, która ideologia najbardziej odpowiada Twoim poglądom.',
-    onb_2_title: '7 osi ideologicznych', onb_2_body: 'Twoje odpowiedzi są mierzone na 7 osiach: od Rewolucji/Reformy po Emancypację/Wspólnotowość. Każda oś pokazuje inny wymiar lewicowej myśli.',
+    onb_2_title: '8 osi ideologicznych', onb_2_body: 'Twoje odpowiedzi są mierzone na 8 osiach: od Rewolucji/Reformy po Emancypację/Wspólnotowość. Każda oś pokazuje inny wymiar lewicowej myśli.',
     onb_3_title: 'Jak odpowiadać?', onb_3_body: 'Wybierz opcję najbliższą Twoim poglądom. Możesz używać klawiszy 1–5, wrócić do poprzedniego pytania lub pominąć pytanie.',
   },
   en: {
@@ -86,7 +86,7 @@ const t = {
     export_png: 'Export PNG', exporting: 'Generating…',
     onb_skip: 'Skip', onb_next: 'Next →', onb_start: 'Let\'s go!',
     onb_1_title: 'Welcome to LeftValues', onb_1_body: 'This quiz will help you discover where you stand on the left-wing map. Answer the questions and find out which ideology best matches your views.',
-    onb_2_title: '7 ideological axes', onb_2_body: 'Your answers are measured on 7 axes: from Revolution/Reform to Emancipation/Communitarianism. Each axis shows a different dimension of left-wing thought.',
+    onb_2_title: '8 ideological axes', onb_2_body: 'Your answers are measured on 8 axes: from Revolution/Reform to Emancipation/Communitarianism. Each axis shows a different dimension of left-wing thought.',
     onb_3_title: 'How to answer?', onb_3_body: 'Choose the option closest to your views. You can use keys 1–5, go back to the previous question, or skip a question.',
   },
   de: {
@@ -129,7 +129,7 @@ const t = {
     export_png: 'PNG exportieren', exporting: 'Wird erstellt…',
     onb_skip: 'Überspringen', onb_next: 'Weiter →', onb_start: 'Los geht\'s!',
     onb_1_title: 'Willkommen bei LeftValues', onb_1_body: 'Dieses Quiz hilft dir herauszufinden, wo du auf der linken Karte stehst. Beantworte die Fragen und finde heraus, welche Ideologie am besten zu dir passt.',
-    onb_2_title: '7 ideologische Achsen', onb_2_body: 'Deine Antworten werden auf 7 Achsen gemessen: von Revolution/Reform bis Emanzipation/Kommunitarismus. Jede Achse zeigt eine andere Dimension linken Denkens.',
+    onb_2_title: '8 ideologische Achsen', onb_2_body: 'Deine Antworten werden auf 8 Achsen gemessen: von Revolution/Reform bis Emanzipation/Kommunitarismus. Jede Achse zeigt eine andere Dimension linken Denkens.',
     onb_3_title: 'Wie antworten?', onb_3_body: 'Wähle die Option, die deinen Ansichten am nächsten kommt. Du kannst die Tasten 1–5 verwenden, zur vorherigen Frage zurückgehen oder eine Frage überspringen.',
   },
   ru: {
@@ -172,7 +172,7 @@ const t = {
     export_png: 'Экспорт PNG', exporting: 'Создание…',
     onb_skip: 'Пропустить', onb_next: 'Далее →', onb_start: 'Начнём!',
     onb_1_title: 'Добро пожаловать в LeftValues', onb_1_body: 'Этот тест поможет вам узнать, где вы находитесь на левой карте. Ответьте на вопросы и выясните, какая идеология лучше всего соответствует вашим взглядам.',
-    onb_2_title: '7 идеологических осей', onb_2_body: 'Ваши ответы измеряются по 7 осям: от Революции/Реформы до Эмансипации/Коммунитаризма. Каждая ось показывает иное измерение левой мысли.',
+    onb_2_title: '8 идеологических осей', onb_2_body: 'Ваши ответы измеряются по 8 осям: от Революции/Реформы до Эмансипации/Коммунитаризма. Каждая ось показывает иное измерение левой мысли.',
     onb_3_title: 'Как отвечать?', onb_3_body: 'Выберите вариант, наиболее близкий к вашим взглядам. Вы можете использовать клавиши 1–5, вернуться к предыдущему вопросу или пропустить вопрос.',
   },
 };
