@@ -69,12 +69,14 @@ function renderQuestion() {
     // Obsługa słownika pojęć (Tooltips)
     if (typeof dictionary !== 'undefined') {
       Object.keys(dictionary).forEach(term => {
-        // Tworzymy wyrażenie regularne, aby zastąpić całe słowa (nieczułe na wielkość liter)
         const regex = new RegExp(`\\b(${term})\\b`, "gi");
-        
-        // Zastępujemy termin spanem z podkreśleniem i atrybutem title (tooltip)
-        questionText = questionText.replace(regex, 
-          `<span class="dict-term" style="border-bottom: 2px dotted var(--red3); cursor: help; position: relative;" title="${dictionary[term]}">$1</span>`
+        const entry = dictionary[term];
+        const def = typeof entry === 'string'
+          ? entry
+          : (entry[currentLang] || entry.pl || '');
+    
+        questionText = questionText.replace(regex,
+          `<span class="dict-term" title="${def}">$1</span>`
         );
       });
     }
