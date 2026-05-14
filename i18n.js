@@ -4,7 +4,7 @@ let currentLang = 'pl';
 const LANGS = ['pl', 'en', 'de', 'ru'];
 const t = {
   pl: {
-    home_desc: 'Odkryj swoje lewicowe wartości. Quiz z {N} pytaniami obejmującymi 7 osi ideologicznych.',
+    home_desc: 'Odkryj swoje lewicowe wartości. Quiz z {N} pytaniami obejmującymi 8 osi ideologicznych.',
     start_quiz: 'Rozpocznij quiz →',
     browse_ideo: 'Przeglądaj ideologie',
     history_btn: 'Historia wyników',
@@ -47,7 +47,7 @@ const t = {
     onb_3_title: 'Jak odpowiadać?', onb_3_body: 'Wybierz opcję najbliższą Twoim poglądom. Możesz używać klawiszy 1–5, wrócić do poprzedniego pytania lub pominąć pytanie.',
   },
   en: {
-    home_desc: 'Discover your left-wing values. A quiz with {N} questions covering 7 ideological axes.',
+    home_desc: 'Discover your left-wing values. A quiz with {N} questions covering 8 ideological axes.',
     start_quiz: 'Start quiz →',
     browse_ideo: 'Browse ideologies',
     history_btn: 'Results history',
@@ -90,7 +90,7 @@ const t = {
     onb_3_title: 'How to answer?', onb_3_body: 'Choose the option closest to your views. You can use keys 1–5, go back to the previous question, or skip a question.',
   },
   de: {
-    home_desc: 'Entdecke deine linken Werte. Ein Quiz mit {N} Fragen zu 7 ideologischen Achsen.',
+    home_desc: 'Entdecke deine linken Werte. Ein Quiz mit {N} Fragen zu 8 ideologischen Achsen.',
     start_quiz: 'Quiz starten →',
     browse_ideo: 'Ideologien erkunden',
     history_btn: 'Ergebnishistorie',
@@ -133,7 +133,7 @@ const t = {
     onb_3_title: 'Wie antworten?', onb_3_body: 'Wähle die Option, die deinen Ansichten am nächsten kommt. Du kannst die Tasten 1–5 verwenden, zur vorherigen Frage zurückgehen oder eine Frage überspringen.',
   },
   ru: {
-    home_desc: 'Узнайте свои левые ценности. Тест из {N} вопросов по 7 идеологическим осям.',
+    home_desc: 'Узнайте свои левые ценности. Тест из {N} вопросов по 8 идеологическим осям.',
     start_quiz: 'Начать тест →',
     browse_ideo: 'Просмотр идеологий',
     history_btn: 'История результатов',
